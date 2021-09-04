@@ -49,4 +49,25 @@ public class HomeController {
                     this.categoryService.getCateById(Integer.parseInt(cateId)).getProducts());
         return "index";
     }
+    
+    @RequestMapping(path="/departments")
+    public String departmentsView(Model model){
+        model.addAttribute("messages", "welcome departments");
+        
+        return "departments";
+    }
+    
+    
+    @RequestMapping(path="/about")
+    public String aboutView(Model model){
+        model.addAttribute("messages", "welcome about");
+        
+        return "about";
+    }
+    
+    @RequestMapping(path="/contact")
+    public String contactView(){
+        
+        return "contact";
+    }
 }
