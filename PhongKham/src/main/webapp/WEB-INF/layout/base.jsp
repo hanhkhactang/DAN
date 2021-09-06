@@ -25,7 +25,9 @@
         <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
 
-        <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
+<!--        <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link rel="stylesheet" href="<c:url value ="/css/open-iconic-bootstrap.min.css"/>">
 
         <link rel="stylesheet" href="<c:url value="/css/owl.carousel.min.css"/>">
@@ -39,46 +41,7 @@
         
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navbar-dark">
-            <div class="container">
-          <!-- <a class="navbar-brand" href="index.html">Health</a> -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-nav" aria-controls="probootstrap-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-          <div class="collapse navbar-collapse" id="probootstrap-nav">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active"><a href="<c:url value="/"/>" class="nav-link pl-0">Home</a></li>
-              <li class="nav-item"><a href="<c:url value="/departments" />" class="nav-link">Departments</a></li>
-              <li class="nav-item"><a href="<c:url value="/about" />" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="<c:url value="/contact" />" class="nav-link">Contact</a></li>
-              <c:if test="${pageContext.request.userPrincipal.name == null}">
-                <li class="nav-item"><a href="<c:url value="/login" />" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>
-
-              </c:if>
-              <c:if test="${pageContext.request.userPrincipal.name != null}">
-                <li class="nav-item">
-                    <a href="<c:url value="/" />" class="nav-link">${pageContext.request.userPrincipal.name}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<c:url value="/logout" />" class="nav-link">Logout</a>
-                </li>   
-
-              </c:if>
-
-            </ul>
-            <div class="ml-auto">
-              <form action="#" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
-                <div class="form-group">
-                  <button class="icon submit"><span class="fa fa-search"></span></button>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        </nav>
+       
         <!-- HEADER -->
         <tiles:insertAttribute name="header"/>
        

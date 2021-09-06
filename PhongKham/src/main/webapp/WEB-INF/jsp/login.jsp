@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <lable for="password">Password</lable>
-        <input type="password" id="password" name="password""/>
+        <input type="password" id="password" name="password" />
     </div>
     <div class="form-group">
         <input type="submit" value="Sign in" />

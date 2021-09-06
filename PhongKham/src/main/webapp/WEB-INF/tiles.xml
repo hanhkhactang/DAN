@@ -57,5 +57,31 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         
     </definition>
     
+    <definition name="adminView" extends="baseLayout">
+        <put-attribute name="title" value="Admin" />
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
+        
+    </definition>
+    
+    <definition name="listDoctor" extends="baseLayout">
+        <put-attribute name="title" value="listDoctor" />
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/administrator/listDoctor.jsp" />
+        
+    </definition>
+    <definition name="addDoctor" extends="baseLayout">
+        <put-attribute name="title" value="listDoctor" />
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/administrator/addDoctor.jsp" />
+        
+    </definition>
+    
+    <definition name="list-customers" template="/WEB-INF/jsp/administrator/list-customer.jsp">
+        
+    </definition>
+    <definition name="customer-form" template="/WEB-INF/jsp/administrator/customer-form.jsp">
+        
+    </definition>
+    
     
 </tiles-definitions>
