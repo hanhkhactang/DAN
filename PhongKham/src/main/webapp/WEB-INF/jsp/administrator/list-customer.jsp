@@ -44,12 +44,12 @@
       <c:forEach var="tempCustomer" items="${customers}">
 
        <!-- construct an "update" link with customer id -->
-       <c:url var="updateLink" value="/customer/updateForm">
+       <c:url var="updateLink" value="updateForm">
         <c:param name="customerId" value="${tempCustomer.id}" />
        </c:url>
 
-       <!-- construct an "delete" link with customer id -->
-       <c:url var="deleteLink" value="/customer/delete">
+       <!-- construct an "delete" link with customer id --> 
+       <c:url var="deleteLink" value="delete">
         <c:param name="customerId" value="${tempCustomer.id}" />
        </c:url>
 
