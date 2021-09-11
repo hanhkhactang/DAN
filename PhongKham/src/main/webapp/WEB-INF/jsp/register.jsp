@@ -31,6 +31,15 @@
         <form:input type="email" id="email" path="email"  />
     </div>
     <div class="form-group">
+        <lable for="diachi">Dia Chi</lable>
+        <form:input type="text" id="diachi" path="diaChi"  />
+    </div>
+    <div class="form-group">
+        <lable for="cmnd">CMND</lable>
+        <form:input type="text" id="cmnd" path="cmnd"  />
+    </div>
+   
+    <div class="form-group">
         <lable for="username">Username</lable>
         <form:input type="text" id="username" path="username"  />
     </div>

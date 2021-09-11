@@ -1,6 +1,6 @@
 <%-- 
-    Document   : customer-form
-    Created on : Sep 6, 2021, 4:12:17 PM
+    Document   : update-form
+    Created on : Sep 10, 2021, 8:21:35 PM
     Author     : Neet Nguyen
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -28,7 +28,7 @@
      <div class="panel-title">Add Customer</div>
     </div>
     <div class="panel-body">
-     <form:form action="saveCustomer" cssClass="form-horizontal"
+     <form:form action="updateCustomer" cssClass="form-horizontal"
       method="post" modelAttribute="customer">
 
       <!-- need to associate this data with customer id -->
@@ -55,18 +55,8 @@
                 <form:input path="email" cssClass="form-control" />
             </div>
         </div>
-        <div class="form-group">
-            <label for="username" class="col-md-3 control-label">username</label>
-            <div class="col-md-9">
-                <form:input path="username" cssClass="form-control" />
-            </div>
-        </div> 
-        <div class="form-group">
-            <label for="password" class="col-md-3 control-label">password</label>
-            <div class="col-md-9">
-                <form:input path="password" cssClass="form-control" />
-            </div>
-        </div>
+        <form:hidden path="username" />
+        <form:hidden path="password" />
         <div class="form-group">
             <label for="role" class="col-md-3 control-label">Role</label>
             <div class="col-md-9">
@@ -89,3 +79,4 @@
  </div>
 </body>
 </html>
+

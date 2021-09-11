@@ -5,7 +5,7 @@
  */
 package com.n.repository.impl;
 
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import com.n.repository.UserRepository;
 import java.util.List;
 import javax.persistence.Query;
@@ -34,10 +34,10 @@ public class UserRepositoryImpl implements  UserRepository {
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public boolean addUser(User user) {
+    public boolean addUser(UserAccount user) {
         
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        user.setUserRole(User.ROLE_USER);
+        user.setUserRole(UserAccount.ROLE_USER);
         user.setActive(true);
         
         Session s = this.sessionFactory.getObject().getCurrentSession();
@@ -52,11 +52,11 @@ public class UserRepositoryImpl implements  UserRepository {
     }
 
     @Override
-    public List<User> getUsers(String username) {
+    public List<UserAccount> getUsers(String username) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root root = query.from(User.class);
+        CriteriaQuery<UserAccount> query = builder.createQuery(UserAccount.class);
+        Root root = query.from(UserAccount.class);
         query.select(root);
         
         Predicate p = builder.equal(root.get("username").as(String.class), username.trim());

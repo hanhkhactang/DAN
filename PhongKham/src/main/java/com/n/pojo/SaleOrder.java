@@ -34,7 +34,7 @@ public class SaleOrder implements Serializable {
     private Date createdDate;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserAccount user;
     
     {
         createdDate = new Date();
@@ -85,14 +85,14 @@ public class SaleOrder implements Serializable {
     /**
      * @return the user
      */
-    public User getUser() {
+    public UserAccount getUser() {
         return user;
     }
 
     /**
      * @param user the user to set
      */
-    public void setUser(User user) {
+    public void setUser(UserAccount user) {
         this.user = user;
     }
 }

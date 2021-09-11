@@ -8,7 +8,7 @@ package com.n.repository.impl;
 import com.n.pojo.Cart;
 import com.n.pojo.OrderDetail;
 import com.n.pojo.SaleOrder;
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import com.n.repository.OrderRepository;
 import com.n.repository.ProductRepository;
 import com.n.utils.Utils;
@@ -48,7 +48,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         try {
             SaleOrder order = new SaleOrder();
             order.setAmount(stats.get("totalAmount"));
-            order.setUser(session.get(User.class, 6));
+            order.setUser(session.get(UserAccount.class, 6));
             session.save(order);
 
             cart.values().stream().map(c -> {

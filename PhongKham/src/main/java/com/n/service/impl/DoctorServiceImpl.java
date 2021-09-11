@@ -5,7 +5,7 @@
  */
 package com.n.service.impl;
 
-import com.n.pojo.Customer;
+import com.n.pojo.UserAccount;
 import com.n.repository.DoctorRepository;
 import com.n.service.DoctorService;
 import java.util.List;
@@ -25,23 +25,30 @@ public class DoctorServiceImpl implements DoctorService{
     private DoctorRepository doctorRepository;
 
     @Override
-    public List<Customer> getCustomers() {
+    public List<UserAccount> getCustomers() {
         return doctorRepository.getCustomer();
     }
 
     @Override
-    public void saveCustomer(Customer customer) {
+    public void saveCustomer(UserAccount customer) {
         doctorRepository.saveCustomer(customer);
     }
+    
+    
 
     @Override
-    public Customer getCustomer(int id) {
+    public UserAccount getCustomer(int id) {
         return doctorRepository.getCustomer(id);
     }
 
     @Override
     public void deleteCustomer(int id) {
         doctorRepository.deleteCustomer(id);
+    }
+
+    @Override
+    public void updateCustomer(UserAccount customer) {
+        doctorRepository.updateCustomer(customer);
     }
     
 }

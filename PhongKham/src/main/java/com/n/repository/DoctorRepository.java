@@ -5,7 +5,7 @@
  */
 package com.n.repository;
 
-import com.n.pojo.Customer;
+import com.n.pojo.UserAccount;
 import java.util.List;
 
 /**
@@ -13,9 +13,10 @@ import java.util.List;
  * @author Neet Nguyen
  */
 public interface DoctorRepository {
-    public List<Customer> getCustomer();
-    public void saveCustomer(Customer customer);
-    public Customer getCustomer(int id);
+    public List<UserAccount> getCustomer();
+    public void saveCustomer(UserAccount customer);
+    public UserAccount getCustomer(int id);
     public void deleteCustomer(int id);
+    public void updateCustomer(UserAccount customer);
    
 }

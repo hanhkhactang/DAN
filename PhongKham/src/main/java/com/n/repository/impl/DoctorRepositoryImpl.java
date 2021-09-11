@@ -5,7 +5,7 @@
  */
 package com.n.repository.impl;
 
-import com.n.pojo.Customer;
+import com.n.pojo.UserAccount;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,6 +16,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.n.repository.DoctorRepository;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
@@ -27,14 +29,20 @@ public class DoctorRepositoryImpl implements DoctorRepository{
     @Autowired
     private SessionFactory sessionFactory;
     
+    @Autowired
+    private LocalSessionFactoryBean localSessionFactoryBean;
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+    
     
 
     @Override
-    public List<Customer> getCustomer() {
+    public List<UserAccount> getCustomer() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery < Customer > cq = cb.createQuery(Customer.class);
-        Root < Customer > root = cq.from(Customer.class);
+        CriteriaQuery < UserAccount > cq = cb.createQuery(UserAccount.class);
+        Root < UserAccount > root = cq.from(UserAccount.class);
         cq.select(root);
         Query query = session.createQuery(cq);
         return query.getResultList();
@@ -42,23 +50,32 @@ public class DoctorRepositoryImpl implements DoctorRepository{
     }
 
     @Override
-    public void saveCustomer(Customer customer) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(customer);
+    public void saveCustomer(UserAccount customer) {
+        customer.setPassword(this.passwordEncoder.encode(customer.getPassword()));
+//        Session currentSession = sessionFactory.getCurrentSession();
+        Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
+        s.saveOrUpdate(customer);
     }
 
     @Override
-    public Customer getCustomer(int id) {
+    public UserAccount getCustomer(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Customer theCustomer = currentSession.get(Customer.class, id);
+        UserAccount theCustomer = currentSession.get(UserAccount.class, id);
         return theCustomer;
     }
 
     @Override
     public void deleteCustomer(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Customer book = session.byId(Customer.class).load(id);
+        UserAccount book = session.byId(UserAccount.class).load(id);
         session.delete(book);
+    }
+
+    @Override
+    public void updateCustomer(UserAccount customer) {
+//        Session currentSession = sessionFactory.getCurrentSession();
+        Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
+        s.saveOrUpdate(customer);
     }
     
 }

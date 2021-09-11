@@ -22,7 +22,35 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class UserAccount implements Serializable {
+
+    /**
+     * @return the diaChi
+     */
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    /**
+     * @param diaChi the diaChi to set
+     */
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    /**
+     * @return the cmnd
+     */
+    public String getCmnd() {
+        return cmnd;
+    }
+
+    /**
+     * @param cmnd the cmnd to set
+     */
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
     public static final String ROLE_USER = "ROLE_USER";
     public static final String ROLE_ADMIN = "ROLE_ADMIN";
     @Id
@@ -35,7 +63,7 @@ public class User implements Serializable {
     @NotEmpty(message = "{user.common.emptyErr}")
     private String lastName;
     @NotEmpty(message = "{user.common.emptyErr}")
-    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@ou.edu.vn$", message = "{user.email.invalid}")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@gmail.com$", message = "{user.email.invalid}")
     private String email;
     @Pattern(regexp = "\\d{10}", message = "{user.phone.invalid}")
     private String phone;
@@ -48,6 +76,9 @@ public class User implements Serializable {
     private String userRole;
     @Transient
     private String confirmPassword;
+    @Column(name="diachi")
+    private String diaChi;
+    private String cmnd;
     
     /**
      * @return the confirmPassword

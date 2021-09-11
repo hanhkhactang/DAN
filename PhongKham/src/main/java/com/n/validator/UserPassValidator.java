@@ -5,7 +5,7 @@
  */
 package com.n.validator;
 
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -19,12 +19,12 @@ public class UserPassValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> type) {
-        return User.class.isAssignableFrom(User.class);
+        return UserAccount.class.isAssignableFrom(UserAccount.class);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        User user = (User) target;
+        UserAccount user = (UserAccount) target;
         if (!user.getPassword().equals(user.getConfirmPassword()))
             errors.rejectValue("password", "user.password.notmatch");
     }

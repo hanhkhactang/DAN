@@ -5,7 +5,7 @@
  */
 package com.n.controllers;
 
-import com.n.pojo.Customer;
+import com.n.pojo.UserAccount;
 import com.n.service.DoctorService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,30 +67,36 @@ public class AdminController {
 //    }
      @GetMapping("/list")
     public String listCustomers(Model theModel) {
-        List < Customer > theCustomers = doctorService.getCustomers();
+        List < UserAccount > theCustomers = doctorService.getCustomers();
         theModel.addAttribute("customers", theCustomers);
         return "list-customers";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model theModel) {
-        Customer theCustomer = new Customer();
+        UserAccount theCustomer = new UserAccount();
         theModel.addAttribute("customer", theCustomer);
         return "customer-form";
     }
 
     @PostMapping("/saveCustomer")
-    public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+    public String saveCustomer(@ModelAttribute("customer") UserAccount theCustomer) {
         doctorService.saveCustomer(theCustomer);
+        return "redirect:/admin/list";
+    }
+    
+    @PostMapping("/updateCustomer")
+    public String updateCustomer(@ModelAttribute("customer") UserAccount theCustomer) {
+        doctorService.updateCustomer(theCustomer);
         return "redirect:/admin/list";
     }
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("customerId") int id,
         Model theModel) {
-        Customer theCustomer = doctorService.getCustomer(id);
+        UserAccount theCustomer = doctorService.getCustomer(id);
         theModel.addAttribute("customer", theCustomer);
-        return "customer-form";
+        return "update-form";
     }
 
     @GetMapping("/delete")

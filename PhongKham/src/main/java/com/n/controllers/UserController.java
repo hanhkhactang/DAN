@@ -5,7 +5,7 @@
  */
 package com.n.controllers;
 
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import com.n.service.UserService;
 import com.n.validator.WebAppValidator;
 import javax.validation.Valid;
@@ -37,14 +37,14 @@ public class UserController {
     
     @GetMapping("/register")
     public String registerView(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new UserAccount());
         
         return "register";
     }
     
     @PostMapping("/register")
     public String register(Model model, 
-            @ModelAttribute(value = "user") @Valid User user,
+            @ModelAttribute(value = "user") @Valid UserAccount user,
             BindingResult result) {
         if (result.hasErrors()) {
             return "register";

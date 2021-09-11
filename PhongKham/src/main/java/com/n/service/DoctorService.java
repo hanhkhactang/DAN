@@ -5,7 +5,7 @@
  */
 package com.n.service;
 
-import com.n.pojo.Customer;
+import com.n.pojo.UserAccount;
 import java.util.List;
 
 /**
@@ -13,11 +13,13 @@ import java.util.List;
  * @author Neet Nguyen
  */
 public interface DoctorService {
-    public List < Customer > getCustomers();
+    public List < UserAccount > getCustomers();
 
-    public void saveCustomer(Customer customer);
+    public void saveCustomer(UserAccount customer);
+    
+    public void updateCustomer(UserAccount customer);
 
-    public Customer getCustomer(int id);
+    public UserAccount getCustomer(int id);
 
     public void deleteCustomer(int id);
 }

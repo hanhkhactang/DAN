@@ -83,5 +83,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         
     </definition>
     
+    <definition name="update-form" template="/WEB-INF/jsp/administrator/update-form.jsp">
+        
+    </definition>
+    
     
 </tiles-definitions>

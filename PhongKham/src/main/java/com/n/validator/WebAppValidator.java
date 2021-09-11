@@ -5,7 +5,7 @@
  */
 package com.n.validator;
 
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -26,7 +26,7 @@ public class WebAppValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> type) {
-        return User.class.isAssignableFrom(User.class);
+        return UserAccount.class.isAssignableFrom(UserAccount.class);
     }
 
     @Override

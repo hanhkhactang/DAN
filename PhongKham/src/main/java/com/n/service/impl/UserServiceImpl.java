@@ -5,7 +5,7 @@
  */
 package com.n.service.impl;
 
-import com.n.pojo.User;
+import com.n.pojo.UserAccount;
 import com.n.repository.UserRepository;
 import com.n.service.UserService;
 import java.util.HashSet;
@@ -29,17 +29,17 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public boolean addUser(User user) {
+    public boolean addUser(UserAccount user) {
         return this.userRepository.addUser(user);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<User> users = this.getUsers(username);
+        List<UserAccount> users = this.getUsers(username);
         if (users.isEmpty()) {
             throw new UsernameNotFoundException("Không tìm thấy user");
         }
-        User u = users.get(0);
+        UserAccount u = users.get(0);
 
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(new SimpleGrantedAuthority(u.getUserRole()));
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers(String username) {
+    public List<UserAccount> getUsers(String username) {
         return this.userRepository.getUsers(username);
     }
 
