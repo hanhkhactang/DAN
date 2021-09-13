@@ -83,7 +83,7 @@ public class Medicine implements Serializable{
     private String name;
     @Column(name = "chuc_nang")
     private String chucNang;
-    @Column(name="desciption")
+    @Column(name="description")
     private String des;
             
     

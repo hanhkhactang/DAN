@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            <label for="description" class="col-md-3 control-label">Desciption</label>
+            <label for="description" class="col-md-3 control-label">Description</label>
             <div class="col-md-9">
                 <form:input path="des" cssClass="form-control" />
             </div>

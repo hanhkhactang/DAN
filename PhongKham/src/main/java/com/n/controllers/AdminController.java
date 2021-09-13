@@ -120,7 +120,7 @@ public class AdminController {
     @GetMapping("/deleteMedicine")
     public String deleteMedicine(@RequestParam("medicineId") int theId) {
         medicineService.deleteMedicine(theId);
-        return "redirect:/medicine/listMedicine";
+        return "redirect:/admin/listMedicine";
     }
     
     
