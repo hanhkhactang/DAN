@@ -19,6 +19,7 @@
               <li class="nav-item"><a href="<c:url value="/admin/list" />" class="nav-link">Doctor</a></li>
               <li class="nav-item"><a href="<c:url value="/about" />" class="nav-link">Nurse</a></li>
               <li class="nav-item"><a href="<c:url value="/contact" />" class="nav-link">Pantient</a></li>
+              <li class="nav-item"><a href="<c:url value="/admin/listMedicine" />" class="nav-link">Medicine</a></li>
               <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item"><a href="<c:url value="/login" />" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>

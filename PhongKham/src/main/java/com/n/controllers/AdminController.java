@@ -5,8 +5,10 @@
  */
 package com.n.controllers;
 
+import com.n.pojo.Medicine;
 import com.n.pojo.UserAccount;
 import com.n.service.DoctorService;
+import com.n.service.MedicineService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,45 +29,18 @@ public class AdminController {
     @Autowired
     private DoctorService doctorService;
     
+    @Autowired
+    private MedicineService medicineService;
+    
     @RequestMapping("")
     public String adminView(){
         return "adminView";
     }
     
-//    @RequestMapping(path="/admin/list-doctor")
-//    public String listDoctor(Model model){
-//        List < Customer > customers = doctorService.getCustomers();
-//        model.addAttribute("customers", customers);
-//        return "listDoctor";
-//    }
-//    
-//    @RequestMapping("/showForm")
-//    public String showFormForAdd(Model model) {
-//        Customer theCustomer = new Customer();
-//        model.addAttribute("customer", theCustomer);
-//        return "addDoctor";
-//    }
-//    
-//    @PostMapping("/saveCustomer")
-//    public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
-//        doctorService.saveCustomer(theCustomer);
-//        return "redirect:/admin/list-doctor";
-//    }
-//    
-//    @GetMapping("/updateForm")
-//    public String showFormForUpdate(@RequestParam("customerId") int id,
-//        Model theModel) {
-//        Customer theCustomer = doctorService.getCustomer(id);
-//        theModel.addAttribute("customer", theCustomer);
-//        return "addDoctor";
-//    }
-//    
-//    @GetMapping("/delete")
-//    public String deleteCustomer(@RequestParam("customerId") int id) {
-//        doctorService.deleteCustomer(id);
-//        return "redirect:/customer/list-doctor";
-//    }
-     @GetMapping("/list")
+    
+    
+    //Quản lý bác sĩ
+    @GetMapping("/list")
     public String listCustomers(Model theModel) {
         List < UserAccount > theCustomers = doctorService.getCustomers();
         theModel.addAttribute("customers", theCustomers);
@@ -104,5 +79,49 @@ public class AdminController {
         doctorService.deleteCustomer(id);
         return "redirect:/admin/list";
     }
+    
+    
+    
+    
+    
+    //Quản lý thuốc
+    @GetMapping("/listMedicine")
+    public String listMedicine(Model theModel) {
+//        List < Medicine > theMedicines = medicineService.getMedicine();
+//        theModel.addAttribute("medicines", theMedicines);
+        List<Medicine> theMedicines = medicineService.getMedicine();
+        theModel.addAttribute("medicines", theMedicines);
+        return "list-medicine";
+    }
+    
+    
+    @GetMapping("/showFormMedicine")
+    public String showFormMedicine(Model theModel) {
+        Medicine theMedicine = new Medicine();
+        theModel.addAttribute("medicine", theMedicine);
+        return "medicine-form";
+    }
+    
+    
+    @PostMapping("/saveMedicine")
+    public String saveMedicine(@ModelAttribute("medicine") Medicine medicine) {
+        medicineService.saveMedicine(medicine);
+        return "redirect:/admin/listMedicine";
+    }
+    
+    @GetMapping("/updateFormMedicine")
+    public String showFormForUpdateMedicine(@RequestParam("medicineId") int theId,
+        Model theModel) {
+        Medicine medicine = medicineService.getMedicine(theId);
+        theModel.addAttribute("medicine", medicine);
+        return "medicine-form";
+    }
+    
+    @GetMapping("/deleteMedicine")
+    public String deleteMedicine(@RequestParam("medicineId") int theId) {
+        medicineService.deleteMedicine(theId);
+        return "redirect:/medicine/listMedicine";
+    }
+    
     
 }
