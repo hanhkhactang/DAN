@@ -76,15 +76,22 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         
     </definition>
     
-    <definition name="list-customers" template="/WEB-INF/jsp/administrator/list-customer.jsp">  
+    <definition name="list-customers" extends="baseLayout">
+        <put-attribute name="title" value="ListDocotr"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/administrator/list-customer.jsp"/>
     </definition>
     <definition name="customer-form" template="/WEB-INF/jsp/administrator/customer-form.jsp">
+   
     </definition>
     
     <definition name="update-form" template="/WEB-INF/jsp/administrator/update-form.jsp">
     </definition>
     
-    <definition name="list-medicine" template="/WEB-INF/jsp/administrator/list-medicine.jsp">  
+    <definition name="list-medicine" extends="baseLayout">  
+        <put-attribute name="title" value="ListMedicine"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/administrator/list-medicine.jsp"/>
     </definition>
     
     <definition name="medicine-form" template="/WEB-INF/jsp/administrator/medicine-form.jsp">
