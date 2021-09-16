@@ -63,6 +63,12 @@ public class DoctorRepositoryImpl implements DoctorRepository{
         UserAccount theCustomer = currentSession.get(UserAccount.class, id);
         return theCustomer;
     }
+    @Override
+    public UserAccount getCustomer(String username) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        UserAccount theCustomer = currentSession.get(UserAccount.class, username);
+        return theCustomer;
+    }
 
     @Override
     public void deleteCustomer(int id) {

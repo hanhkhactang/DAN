@@ -7,6 +7,7 @@ package com.n.controllers;
 
 import com.n.pojo.UserAccount;
 import com.n.service.UserService;
+import com.n.service.DoctorService;
 import com.n.validator.WebAppValidator;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -27,6 +30,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     @Autowired
     private UserService userDetailsService;
+    @Autowired
+    private DoctorService doctorService;
     @Autowired
     private WebAppValidator userValidator;
     
@@ -63,4 +68,13 @@ public class UserController {
     public String loginView() {
         return "login";
     }
+    @GetMapping(path="/updateinformation")
+    public String showFormForUpdate(@RequestParam("customerId") int id,
+        Model theModel) {
+        
+        UserAccount theCustomer = doctorService.getCustomer(id);
+        theModel.addAttribute("customer", theCustomer);
+        return "updateinformation";
+    }
+        
 }

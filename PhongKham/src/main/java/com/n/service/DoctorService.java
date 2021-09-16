@@ -20,6 +20,8 @@ public interface DoctorService {
     public void updateCustomer(UserAccount customer);
 
     public UserAccount getCustomer(int id);
+    
+    public UserAccount getCustomer(String username);
 
     public void deleteCustomer(int id);
 }

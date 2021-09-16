@@ -28,6 +28,8 @@ public class DoctorServiceImpl implements DoctorService{
     public List<UserAccount> getCustomers() {
         return doctorRepository.getCustomer();
     }
+    
+       
 
     @Override
     public void saveCustomer(UserAccount customer) {
@@ -49,6 +51,11 @@ public class DoctorServiceImpl implements DoctorService{
     @Override
     public void updateCustomer(UserAccount customer) {
         doctorRepository.updateCustomer(customer);
+    }
+
+    @Override
+    public UserAccount getCustomer(String username) {
+       return doctorRepository.getCustomer(username);
     }
     
 }

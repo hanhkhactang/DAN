@@ -35,12 +35,13 @@
 
        <!-- construct an "update" link with customer id -->
        <c:url var="updateLink" value="updateForm">
-        <c:param name="customerId" value="${tempCustomer.id}" />
+            <c:param name="customerId" value="${tempCustomer.id}" />
        </c:url>
 
        <!-- construct an "delete" link with customer id --> 
        <c:url var="deleteLink" value="delete">
-        <c:param name="customerId" value="${tempCustomer.id}" />
+        <c:param name="customerId" value="${tempCustomer.id
+            }" />
        </c:url>
        
        <tr>

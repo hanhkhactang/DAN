@@ -16,8 +16,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-          <div class="collapse navbar-collapse" id="probootstrap-nav">
-            <ul class="navbar-nav mr-auto">
+          <div class="collapse navbar-collapse" id="probootstrap-nav" var="c" items="${customers}">
+            <ul class="navbar-nav mr-auto" >
               <li class="nav-item active"><a href="<c:url value="/"/>" class="nav-link pl-0">Home</a></li>
               <li class="nav-item"><a href="<c:url value="/departments" />" class="nav-link">Departments</a></li>
               <li class="nav-item"><a href="<c:url value="/about" />" class="nav-link">About</a></li>
@@ -27,15 +27,22 @@
                 <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>
 
               </c:if>
+                
               <c:if test="${pageContext.request.userPrincipal.name != null}">
+                  <c:url var="updateLink" value="updateinformation">
+                    <c:param name="customerId" value="${customer.id}" />
+                  </c:url>
                 <li class="nav-item">
-                    <a href="<c:url value="/" />" class="nav-link">${pageContext.request.userPrincipal.name}</a>
+                    <a href="<c:url value="${updateLink}" />" class="nav-link">
+                        ${pageContext.request.userPrincipal.name}</a>
                 </li>
                 <li class="nav-item">
                     <a href="<c:url value="/logout" />" class="nav-link">Logout</a>
-                </li>   
-
+                </li>  
+                
+                
               </c:if>
+                
 
             </ul>
             <div class="ml-auto">
