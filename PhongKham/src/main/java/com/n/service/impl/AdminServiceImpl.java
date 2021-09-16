@@ -10,8 +10,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.n.repository.DoctorRepository;
-import com.n.service.DoctorService;
+import com.n.repository.AdminRepository;
+import com.n.service.AdminService;
 
 /**
  *
@@ -19,10 +19,10 @@ import com.n.service.DoctorService;
  */
 @Service
 @Transactional
-public class DoctorServiceImpl implements DoctorService{
+public class AdminServiceImpl implements AdminService{
     
     @Autowired
-    private DoctorRepository doctorRepository;
+    private AdminRepository doctorRepository;
 
     @Override
     public List<UserAccount> getCustomers() {

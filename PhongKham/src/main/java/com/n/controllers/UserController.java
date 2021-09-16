@@ -7,7 +7,6 @@ package com.n.controllers;
 
 import com.n.pojo.UserAccount;
 import com.n.service.UserService;
-import com.n.service.DoctorService;
 import com.n.validator.WebAppValidator;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.n.service.AdminService;
 
 /**
  *
@@ -31,7 +31,7 @@ public class UserController {
     @Autowired
     private UserService userDetailsService;
     @Autowired
-    private DoctorService doctorService;
+    private AdminService doctorService;
     @Autowired
     private WebAppValidator userValidator;
     
