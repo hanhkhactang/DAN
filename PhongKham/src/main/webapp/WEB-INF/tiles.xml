@@ -105,7 +105,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="header" value="/WEB-INF/jsp/doctor/doctorview.jsp" />
         
     </definition>
-    <definitipon name="list-patient" extends="baseLayout">
+    
+    
+    <definition name="list-patient" extends="baseLayout">
         <put-attribute name="title" value="Listpatient"/>
         <put-attribute name="header" value="/WEB-INF/jsp/doctor/doctorview.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/doctor/list-patient.jsp"/>

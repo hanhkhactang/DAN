@@ -31,37 +31,38 @@
       </tr>
 
       <!-- loop over and print our customers -->
-      <c:forEach var="tempCustomer" items="${customers}">
+    <c:forEach var="tempCustomer" items="${customers}">
+        <c:if test="${tempCustomer.userRole != 'ROLE_USER'}">
 
        <!-- construct an "update" link with customer id -->
-       <c:url var="updateLink" value="updateForm">
+        <c:url var="updateLink" value="updateForm">
             <c:param name="customerId" value="${tempCustomer.id}" />
-       </c:url>
+        </c:url>
 
        <!-- construct an "delete" link with customer id --> 
-       <c:url var="deleteLink" value="delete">
-        <c:param name="customerId" value="${tempCustomer.id
-            }" />
-       </c:url>
+        <c:url var="deleteLink" value="delete">
+            <c:param name="customerId" value="${tempCustomer.id}" />
+        </c:url>
        
-       <tr>
-        <td>${tempCustomer.firstName}</td>
-        <td>${tempCustomer.lastName}</td>
-        <td>${tempCustomer.email}</td>
+        <tr>
+            <td>${tempCustomer.firstName}</td>
+            <td>${tempCustomer.lastName}</td>
+            <td>${tempCustomer.email}</td>
         
         
 
-        <td>
+            <td>
          <!-- display the update link --> <a href="${updateLink}">Update</a>
          | <a href="${deleteLink}"
          onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
-        </td>
+            </td>
 
        </tr>
+       </c:if>
 
-      </c:forEach>
+    </c:forEach>
 
-     </table>
+    </table>
 
     </div>
    </div>

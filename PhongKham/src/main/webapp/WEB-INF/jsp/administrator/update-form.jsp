@@ -57,11 +57,12 @@
         </div>
         <form:hidden path="username" />
         <form:hidden path="password" />
-        <div class="form-group">
-            <label for="role" class="col-md-3 control-label">Role</label>
-            <div class="col-md-9">
-                <form:input path="userRole" cssClass="form-control" />
-            </div>
+        <div class="form-control">
+            <label for="role">Role</label>
+            <form:select path="userRole" class="form-control">
+                <form:option value="ROLE_ADMIN">Administrator</form:option>
+                <form:option value="ROLE_DOCTOR">Doctor</form:option>
+            </form:select>  
         </div>
         
 
