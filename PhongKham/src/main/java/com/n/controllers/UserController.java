@@ -91,5 +91,13 @@ public class UserController {
         theModel.addAttribute("customers", theCustomers);
         return "updateinformation";
     }
+    
+    @GetMapping(path="/editForm")
+    public String showFormForUpdate(@RequestParam("customerId") int id,
+        Model theModel) {
+        UserAccount theCustomer = doctorService.getCustomer(id);
+        theModel.addAttribute("customer", theCustomer);
+        return "update-form";
+    }
         
 }

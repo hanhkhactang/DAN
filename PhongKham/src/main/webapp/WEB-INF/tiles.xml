@@ -97,7 +97,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="medicine-form" template="/WEB-INF/jsp/administrator/medicine-form.jsp">
     </definition>
     
-    <definition name="updateinformation" template="/WEB-INF/jsp/updateinformation.jsp">
+    <definition name="updateinformation" extends="baseLayout">
+        <put-attribute name="title" value="Information"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/updateinformation.jsp"/>
     </definition>
     <!-- Doctor -->
     <definition name="doctorview" extends="baseLayout">

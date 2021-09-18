@@ -62,6 +62,7 @@
             <form:select path="userRole" class="form-control">
                 <form:option value="ROLE_ADMIN">Administrator</form:option>
                 <form:option value="ROLE_DOCTOR">Doctor</form:option>
+                <form:option value="ROLE_NURSE">Nurse</form:option>
             </form:select>  
         </div>
         

@@ -10,7 +10,7 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>CRM - Customer Relationship Manager</h2>
+   <h2>Information</h2>
    <hr />
 
    <input type="button" value="Add Customer"
@@ -35,7 +35,7 @@
         <c:if test="${pageContext.request.userPrincipal.name == tempCustomer.username}">
 
        <!-- construct an "update" link with customer id -->
-        <c:url var="updateLink" value="updateForm">
+        <c:url var="updateLink" value="editForm">
             <c:param name="customerId" value="${tempCustomer.id}" />
         </c:url>
 

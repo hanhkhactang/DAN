@@ -41,8 +41,7 @@
 
        <!-- construct an "delete" link with customer id --> 
        <c:url var="deleteLink" value="delete">
-        <c:param name="customerId" value="${tempCustomer.id
-            }" />
+        <c:param name="customerId" value="${tempCustomer.id}" />
        </c:url>
        
        <tr>

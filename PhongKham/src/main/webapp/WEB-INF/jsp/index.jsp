@@ -9,13 +9,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>HomePage</title>
-    </head>
-    <body>
+
         <section class="mb-5">
         <div class="container">
           <div class="row">
@@ -168,11 +162,13 @@
               </ul>
               <p><a href="#" class="arrow-link">View All  <i class="fa fa-chevron-right"></i></a></p>
             </div>
+            
             <div class="col-md-6 p-md-5 p-3 probootstrap-aside-stretch-right">
               <h2 class="h1 text-white">Make an Appointment</h2>
-              <form action="#" class="probootstrap-form-appointment">
+              <form:form class="probootstrap-form-appointment"> 
+              
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Your Name">
+                  <input type="text" class="form-control" placeholder="Your Name">            
                 </div>
                 <div class="form-group">
                   <input type="email" class="form-control" placeholder="Your Email">
@@ -187,7 +183,8 @@
                 <div class="form-group">
                   <input type="submit" value="Submit Form" class="btn btn-secondary">
                 </div>
-              </form>
+              
+              </form:form>
             </div>
           </div>
         </div>
@@ -359,5 +356,4 @@
       </form>
     </div>
   </section>
-  </body>
-</html>
+
