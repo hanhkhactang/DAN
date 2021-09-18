@@ -55,5 +55,4 @@
         <input type="submit" value="Sign up" />
     </div>
     
-    
 </form:form>

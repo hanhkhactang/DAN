@@ -65,5 +65,11 @@ public class UserRepositoryImpl implements  UserRepository {
         Query q = session.createQuery(query);
         return q.getResultList();
     }
+
+    @Override
+    public void editUser(UserAccount user) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        s.update(user);
+    }
     
 }

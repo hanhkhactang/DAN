@@ -10,17 +10,13 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>Information</h2>
+   <h2>${pageContext.request.userPrincipal.name}'s Information</h2>
    <hr />
 
-   <input type="button" value="Add Customer"
-    onclick="window.location.href='showForm'; return false;"
-    class="btn btn-primary" />
+   
     <br/><br/>
    <div class="panel panel-info">
-    <div class="panel-heading">
-     <div class="panel-title">Customer List</div>
-    </div>
+
     <div class="panel-body">
      <table class="table table-striped table-bordered">
       <tr>

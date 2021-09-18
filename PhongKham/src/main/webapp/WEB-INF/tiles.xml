@@ -115,6 +115,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content" value="/WEB-INF/jsp/doctor/list-patient.jsp"/>
     </definition>
     
+    <definition name="editForm" template="/WEB-INF/jsp/editInformationForm.jsp">
+    </definition>
+    
     
     
     

@@ -49,7 +49,6 @@ public class UserController {
     @GetMapping("/register")
     public String registerView(Model model) {
         model.addAttribute("user", new UserAccount());
-        
         return "register";
         
     }
@@ -95,9 +94,15 @@ public class UserController {
     @GetMapping(path="/editForm")
     public String showFormForUpdate(@RequestParam("customerId") int id,
         Model theModel) {
-        UserAccount theCustomer = doctorService.getCustomer(id);
-        theModel.addAttribute("customer", theCustomer);
-        return "update-form";
+        UserAccount user = doctorService.getCustomer(id);
+        theModel.addAttribute("customer", user);
+        return "editForm";
+    }
+    
+    @PostMapping("/updateUser")
+    public String updateUser(@ModelAttribute("customer") UserAccount user) {
+        doctorService.updateCustomer(user);
+        return "redirect:/updateinformation";
     }
         
 }
