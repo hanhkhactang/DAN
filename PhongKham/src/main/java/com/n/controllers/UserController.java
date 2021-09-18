@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.n.service.AdminService;
+import java.util.List;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.MailSender;
 
 /**
  *
@@ -31,7 +34,10 @@ public class UserController {
     @Autowired
     private UserService userDetailsService;
     @Autowired
+    MailSender mailSender;
+    @Autowired
     private AdminService doctorService;
+    
     @Autowired
     private WebAppValidator userValidator;
     
@@ -45,8 +51,19 @@ public class UserController {
         model.addAttribute("user", new UserAccount());
         
         return "register";
+        
     }
     
+    public void senEmail(String from, String to,String subject,String content)
+    {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(from);
+        mailMessage.setTo(to);
+        mailMessage.setSubject(subject);
+        mailMessage.setText(content);
+        
+        mailSender.send(mailMessage);
+    }
     @PostMapping("/register")
     public String register(Model model, 
             @ModelAttribute(value = "user") @Valid UserAccount user,
@@ -69,11 +86,9 @@ public class UserController {
         return "login";
     }
     @GetMapping(path="/updateinformation")
-    public String showFormForUpdate(@RequestParam("customerId") int id,
-        Model theModel) {
-        
-        UserAccount theCustomer = doctorService.getCustomer(id);
-        theModel.addAttribute("customer", theCustomer);
+    public String listCustomers(Model theModel) {
+        List < UserAccount > theCustomers = doctorService.getCustomers();
+        theModel.addAttribute("customers", theCustomers);
         return "updateinformation";
     }
         

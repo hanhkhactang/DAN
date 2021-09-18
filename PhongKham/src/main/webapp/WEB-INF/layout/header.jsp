@@ -29,11 +29,9 @@
               </c:if>
                 
               <c:if test="${pageContext.request.userPrincipal.name != null}">
-                  <c:url var="updateLink" value="updateinformation">
-                    <c:param name="customerId" value="${customer.id}" />
-                  </c:url>
+                  
                 <li class="nav-item">
-                    <a href="<c:url value="${updateLink}" />" class="nav-link">
+                    <a href="<c:url value="/updateinformation" />" class="nav-link">
                         ${pageContext.request.userPrincipal.name}</a>
                 </li>
                 <li class="nav-item">

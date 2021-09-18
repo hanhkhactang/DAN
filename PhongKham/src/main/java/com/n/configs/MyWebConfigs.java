@@ -5,10 +5,12 @@
  */
 package com.n.configs;
 
+import com.n.email.MyConstants;
 import com.n.formatter.CategoryFormatter;
 import com.n.validator.UserPassValidator;
 import com.n.validator.WebAppValidator;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -86,6 +90,25 @@ public class MyWebConfigs implements WebMvcConfigurer {
         WebAppValidator v = new WebAppValidator();
         v.setSpringValidators(myV);
         return v;
+    }
+    @Bean
+    public JavaMailSender getMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
+
+        mailSender.setUsername(MyConstants.MY_EMAIL);
+        mailSender.setPassword(MyConstants.MY_PASSWORD);
+
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true");
+        
+        mailSender.setJavaMailProperties(props);
+
+        return mailSender;
     }
     
 }
