@@ -10,6 +10,8 @@ import com.n.pojo.Patient;
 import com.n.service.NurseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NurseController {
     @Autowired
     private NurseService nurseService;
-    
+    @Autowired
+    MailSender mailSender;
     @RequestMapping("")
     public String nurseView(){
         return "nurseView";
@@ -44,10 +47,20 @@ public class NurseController {
     @RequestMapping("/savePatient")
     public String savePatient(@ModelAttribute("patient") Patient patient){
         nurseService.savePatient(patient);
-        
+        String a = patient.getEmail();
+        senEmail("benhviennguyenlap@gmail.com", a, "Xác nhận kịch khám", "Lịch khám của bạn đã được xác nhận");
         return "redirect:/nurse/list-patient";
     }
-    
+    public void senEmail(String from, String to,String subject,String content)
+    {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(from);
+        mailMessage.setTo(to);
+        mailMessage.setSubject(subject);
+        mailMessage.setText(content);
+        
+        mailSender.send(mailMessage);
+    }
     
     @GetMapping("/showInformation")
     public String showFormPatient(@RequestParam("patientId") int id,

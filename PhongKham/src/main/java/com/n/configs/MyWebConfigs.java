@@ -38,7 +38,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
     "com.n.controllers", 
-    "com.n.repository", 
+    "com.n.repository",
+    "com.n.repository.impl",
     "com.n.service",
     "com.n.validator"
 })
