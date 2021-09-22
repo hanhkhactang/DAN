@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface NurseRepository {
     public List < Patient > getPatient();
+    public void savePatient(Patient patient);
+    public Patient getPatient(int id);
     
 }

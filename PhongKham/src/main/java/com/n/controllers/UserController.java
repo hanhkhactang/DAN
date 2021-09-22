@@ -5,6 +5,7 @@
  */
 package com.n.controllers;
 
+import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
 import com.n.service.UserService;
 import com.n.validator.WebAppValidator;
@@ -104,5 +105,14 @@ public class UserController {
         doctorService.updateCustomer(user);
         return "redirect:/updateinformation";
     }
+    
+    @RequestMapping(path="/apoitment")
+    public String apoitView(Model model){
+        Patient patient = new Patient();
+        model.addAttribute("patient", patient);
+        return "apoitment";
+    }
+    
+  
         
 }

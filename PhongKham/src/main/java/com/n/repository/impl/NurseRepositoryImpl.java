@@ -16,6 +16,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -35,6 +36,20 @@ public class NurseRepositoryImpl implements NurseRepository{
         cq.select(root);
         Query query = session.createQuery(cq);
         return query.getResultList();
+    }
+
+    @Override
+    public void savePatient(Patient patient) {
+        patient.setActive(true);
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        s.update(patient);
+    }
+
+    @Override
+    public Patient getPatient(int id) {
+        Session currentSession = this.sessionFactory.getObject().getCurrentSession();
+        Patient patient = currentSession.get(Patient.class, id);
+        return patient;
     }
     
 }

@@ -5,10 +5,12 @@
  */
 package com.n.controllers;
 
+import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
 import com.n.service.AdminService;
 import com.n.service.DoctorService;
 import com.n.service.MedicineService;
+import com.n.service.NurseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,15 +30,21 @@ public class DoctorController {
     @Autowired
     private MedicineService medicineService;
     
+    @Autowired
+    private NurseService nurseService;
+    
     @RequestMapping("")
     public String adminView(){
         return "doctorview";
         
     }
     @RequestMapping("/list")
-    public String listCustomers(Model theModel) {
-        List < UserAccount > theCustomers = doctorService.getCustomers();
-        theModel.addAttribute("customers", theCustomers);
+    public String listPatient(Model model) {
+        List < Patient > patient = nurseService.getPatient();
+        model.addAttribute("patients", patient);
+        
         return "list-patient";
     }
+    
+    
 }

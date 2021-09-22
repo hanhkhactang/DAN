@@ -117,7 +117,23 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     
     <definition name="editForm" template="/WEB-INF/jsp/editInformationForm.jsp">
     </definition>
+    <definition name="apoitment" template="/WEB-INF/jsp/apoitment.jsp">    
+    </definition>
     
+    
+    <definition name="nurseView" extends="baseLayout">
+        <put-attribute name="title" value="Nurse" />
+        <put-attribute name="header" value="/WEB-INF/jsp/nurse/nurseView.jsp" />        
+    </definition>
+    
+    <definition name="patient" extends="baseLayout">  
+        <put-attribute name="title" value="Patient"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/nurse/nurseView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/patient-list.jsp"/>
+    </definition>
+    
+    <definition name="informationPatient" template="/WEB-INF/jsp/nurse/informationPatient.jsp">
+    </definition>
     
     
     

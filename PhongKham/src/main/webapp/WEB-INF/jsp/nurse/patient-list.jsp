@@ -1,6 +1,6 @@
-    <%-- 
-    Document   : list-customer
-    Created on : Sep 6, 2021, 4:12:56 PM
+<%-- 
+    Document   : patient-list
+    Created on : Sep 22, 2021, 2:01:36 PM
     Author     : Neet Nguyen
 --%>
 
@@ -10,16 +10,14 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>CRM - Customer Relationship Manager</h2>
+   <h2>Patient List</h2>
    <hr />
 
-   <input type="button" value="Add Customer"
-    onclick="window.location.href='showForm'; return false;"
-    class="btn btn-primary" />
-    <br/><br/>
+  
+   <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
-     <div class="panel-title">Customer List</div>
+     <div class="panel-title">Patient List</div>
     </div>
     <div class="panel-body">
      <table class="table table-striped table-bordered">
@@ -32,10 +30,10 @@
 
       <!-- loop over and print our customers -->
       <c:forEach var="tempPatient" items="${patients}">
-          <c:if test="${tempPatient.active==true}">
+          <c:if test="${tempPatient.active==false}">
 
        <!-- construct an "update" link with customer id -->
-       <c:url var="updateLink" value="updateForm">
+       <c:url var="confirmLink" value="showInformation">
             <c:param name="patientId" value="${tempPatient.id}" />
        </c:url>
 
@@ -52,13 +50,14 @@
         
 
         <td>
-         <!-- display the update link --> <a href="${updateLink}">Update</a>
+         <!-- display the update link --> <a href="${confirmLink}">Confirm</a>
          | <a href="${deleteLink}"
          onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
         </td>
 
        </tr>
-        </c:if> 
+       </c:if>
+       
       </c:forEach>
 
      </table>

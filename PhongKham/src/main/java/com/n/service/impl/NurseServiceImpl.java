@@ -11,12 +11,14 @@ import com.n.service.NurseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Neet Nguyen
  */
 @Service
+@Transactional
 public class NurseServiceImpl implements NurseService{
     @Autowired
     public NurseRepository nurseRepository;
@@ -25,6 +27,16 @@ public class NurseServiceImpl implements NurseService{
     public List<Patient> getPatient() {
         return nurseRepository.getPatient();
        
+    }
+
+    @Override
+    public void savePatient(Patient patient) {
+        nurseRepository.savePatient(patient);
+    }
+
+    @Override
+    public Patient getPatient(int id) {
+        return nurseRepository.getPatient(id);
     }
     
 }

@@ -21,20 +21,7 @@ import javax.persistence.Table;
 @Table(name="patient")
 public class Patient {
 
-    /**
-     * @return the ngayHen
-     */
-    public Date getNgayHen() {
-        return ngayHen;
-    }
-
-    /**
-     * @param ngayHen the ngayHen to set
-     */
-    public void setNgayHen(Date ngayHen) {
-        this.ngayHen = ngayHen;
-    }
-
+   
     /**
      * @return the id
      */
@@ -111,7 +98,5 @@ public class Patient {
     private String email;
     private boolean active;
     private String mess;
-    @Column(name="ngay_hen")
-    private Date ngayHen;
             
 }
