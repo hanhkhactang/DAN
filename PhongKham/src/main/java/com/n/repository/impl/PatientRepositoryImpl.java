@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -26,11 +27,19 @@ public class PatientRepositoryImpl implements PatientRepository{
     
     @Autowired
     public LocalSessionFactoryBean SessionFactory;
+    @Autowired
+    public SessionFactory sessionFactory;
 
     @Override
     public void savePatient(Patient patient) {
         patient.setActive(false);
         Session s = this.SessionFactory.getObject().getCurrentSession();
         s.save(s);
+    }
+    @Override
+    public void addPatient(Patient patient) {
+        patient.setActive(false);
+        Session s = sessionFactory.getCurrentSession();
+        s.save(patient);
     }
 }

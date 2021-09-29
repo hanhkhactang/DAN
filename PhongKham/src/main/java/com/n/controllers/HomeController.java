@@ -6,7 +6,9 @@
 package com.n.controllers;
 
 import com.n.pojo.Cart;
+import com.n.pojo.Patient;
 import com.n.service.CategoryService;
+import com.n.service.PatientService;
 import com.n.service.ProductService;
 import com.n.utils.Utils;
 import java.util.Map;
@@ -15,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,7 +34,8 @@ public class HomeController {
     private CategoryService categoryService;
     @Autowired
     private ProductService productService;
-    
+    @Autowired
+    private PatientService patientService;
     @ModelAttribute
     public void addAttributes(Model model, HttpSession session) {
         model.addAttribute("categories", this.categoryService.getCategories());
@@ -70,7 +75,17 @@ public class HomeController {
         
         return "contact";
     }
-    
+     @GetMapping("/dkkham")
+    public String adddkkham(Model model) {
+        Patient patient = new Patient();
+        model.addAttribute("patient", patient);
+        return "dkkham";
+    }
+    @PostMapping("/addPatient")
+    public String adddPatient(@ModelAttribute("patient") Patient patient) {
+        patientService.addPatient(patient);
+        return "redirect:/";
+    }
     
     
 }

@@ -134,7 +134,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     
     <definition name="informationPatient" template="/WEB-INF/jsp/nurse/informationPatient.jsp">
     </definition>
-    
+    <definition name="dkkham" template="/WEB-INF/jsp/dkkham.jsp"></definition>
     
     
     

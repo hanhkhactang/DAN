@@ -14,5 +14,6 @@ import java.util.List;
  */
 public interface PatientRepository {
     public void savePatient(Patient patient);
+    public void addPatient(Patient patient);
     
 }
