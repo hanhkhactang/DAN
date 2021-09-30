@@ -1,41 +1,55 @@
 <%-- 
-    Document   : login
-    Created on : Aug 26, 2021, 9:58:15 AM
+    Document   : login1
+    Created on : Sep 30, 2021, 5:04:52 PM
     Author     : Neet Nguyen
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="text-danger text-center" >ĐĂNG NHẬP</h1>
-
-<c:if test="${param.error!=null}">
-    <div class="alert alert-danger">
-        Da co loi! vui long quay lai sau!
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="<c:url value="/css/login.css" />" />
+    </head>
+    <body>
+        <c:if test="${param.error!=null}">
+            <div class="alert alert-danger">
+            Da co loi! vui long quay lai sau!
         
-    </div>
+            </div>
     
-</c:if>
-<c:if test="${param.accessDenied != null}">
-    <div class="alert alert-danger">
-        Ban khong co quyen truy cap!!
+        </c:if>
         
-    </div>
+        <c:if test="${param.accessDenied != null}">
+            <div class="alert alert-danger">
+                Ban khong co quyen truy cap!!
+        
+             </div>
      
-</c:if>
-
-<c:url value="/login" var="action" />
-<form class="text-danger" method="post" action="${action}">
-    <div class="form-group">
-        <lable for="username">Username</lable>
-        <input type="text" id="username" name="username" />
-    </div>
-    <div class="form-group">
-        <lable for="password">Password</lable>
-        <input type="password" id="password" name="password" />
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Sign in" />
-    </div>
-    
-    
-</form>
+        </c:if>
+        
+        <div class="center">
+            <h1>Login</h1>
+            <c:url value="/login" var="action"/>
+            <form method="post" action="${action}">
+                <div class="txt_field">
+                    <input id="username" name="username" type="text" required />
+                    <span></span>
+                    <label for="username">Username</label>
+                </div>
+                <div class="txt_field">
+                    <input id="password" name="password" type="password" required />
+                    <span></span>
+                    <label for="password">Password</label>
+                </div>
+                <div class="pass">Forgot Password</div>
+                <input type="submit" value="Login" />
+                <div class="signup_link">
+                    Not a member? <a href="<c:url value="/register" />">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

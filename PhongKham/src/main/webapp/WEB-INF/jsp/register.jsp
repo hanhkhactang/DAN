@@ -1,58 +1,63 @@
 <%-- 
-    Document   : register
-    Created on : Aug 26, 2021, 3:00:16 PM
+    Document   : register1
+    Created on : Sep 30, 2021, 6:19:21 PM
     Author     : Neet Nguyen
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<h1 class="text-center text-danger">ĐĂNG KÝ</h1>
-<c:url value="/register" var="action" />
-
-<form:form class="text-danger" method="post" action="${action}" modelAttribute="user">
-    <form:errors path="*" element="div" cssClass="alert alert-danger" />
-    <c:if test="${errMsg != null}">
-        <div class="alert alert-danger">
-            ${errMsg}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+        <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="main">
+            <div class="register">
+                <h2>Register Here</h2>
+                
+                <form:form id="register" method="post" action="${action}" modelAttribute="user"> 
+                    <label for="firsname">First Name : </label>
+                    <br>
+                    <form:input path="firstName" type="text" name="fname" id="name" placeholder="Enter Your First Name" />
+                    <br><br>
+                    <label for="lastname">Last Name : </label>
+                    <br>
+                    <form:input path="lastName" type="text" name="lname" id="name" placeholder="Enter Your Last Name" />
+                    <br><br>
+                    <label for="email">Email : </label>
+                    <br>
+                    <form:input path="email" type="email" name="email" id="name" placeholder="Enter Your Email" />
+                    <br><br>
+                    <label for="diachi">Address : </label>
+                    <br>
+                    <form:input path="diaChi" type="text" name="adress" id="name" placeholder="Enter Your Address" />
+                    <br><br>
+                    <label for="cmnd">Identity card number : </label>
+                    <br>
+                    <form:input path="cmnd" type="text" name="cmnd" id="name" placeholder="Enter Your Identity card number" />
+                    <br><br>
+                    <label for="username">Username : </label>
+                    <br>
+                    <form:input path="username" type="text" name="username" id="name" placeholder="Enter Your Username" />
+                    <br><br>
+                    <label for="password">Password : </label>
+                    <br>
+                    <form:input path="password" type="password" name="password" id="name" placeholder="Enter Your Password" />
+                    <br><br>
+                    <label for="confirm-password">Confirm Password : </label>
+                    <br>
+                    <form:input path="confirmPassword" type="password" name="confirm-password" id="name" placeholder="Enter Your Confirm Password" />
+                    <br><br>
+                    <input type="submit" value="Sign Up" name="submit" id="submit" />
+                </form:form>
+                
+            </div>
+            
         </div>
-    </c:if>
-    <div class="form-group">
-        <lable for="firstname">First Name</lable>
-        <form:input type="text" id="username" path="firstName"  />
-    </div>
-    <div class="form-group">
-        <lable for="lastname">Last Name</lable>
-        <form:input type="text" id="lastname" path="lastName"  />
-    </div>
-    <div class="form-group">
-        <lable for="email">Email</lable>
-        <form:input type="email" id="email" path="email"  />
-    </div>
-    <div class="form-group">
-        <lable for="diachi">Dia Chi</lable>
-        <form:input type="text" id="diachi" path="diaChi"  />
-    </div>
-    <div class="form-group">
-        <lable for="cmnd">CMND</lable>
-        <form:input type="text" id="cmnd" path="cmnd"  />
-    </div>
-   
-    <div class="form-group">
-        <lable for="username">Username</lable>
-        <form:input type="text" id="username" path="username"  />
-    </div>
-    <div class="form-group">
-        <lable for="password">Password</lable>
-        <form:input type="password" id="password" path="password"  />
-    </div>
-    <div class="form-group">
-        <lable for="confirm-password">Confirm Password</lable>
-        <form:input type="password" id="confirm-password" path="confirmPassword"  />
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Sign up" />
-    </div>
-    
-</form:form>
+        
+        
+    </body>
+</html>

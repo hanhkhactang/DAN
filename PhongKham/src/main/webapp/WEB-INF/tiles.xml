@@ -46,19 +46,13 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         
     </definition>
     
-    <definition name="login" extends="baseLayout">
-        <put-attribute name="title" value="Dang Nhap" />
-        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
-        
-    </definition>
     
-    <definition name="login1" template="/WEB-INF/jsp/login1.jsp"></definition>
     
-    <definition name="register" extends="baseLayout">
-        <put-attribute name="title" value="Dang ky" />
-        <put-attribute name="content" value="/WEB-INF/jsp/register.jsp" />
-        
-    </definition>
+    <definition name="login1" template="/WEB-INF/jsp/login.jsp"></definition>
+    
+    
+    
+    <definition name="register" template="/WEB-INF/jsp/register.jsp"></definition>
     
     <definition name="adminView" extends="baseLayout">
         <put-attribute name="title" value="Admin" />

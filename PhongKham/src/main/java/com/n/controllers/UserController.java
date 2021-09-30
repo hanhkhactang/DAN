@@ -113,6 +113,12 @@ public class UserController {
         return "apoitment";
     }
     
+//    @RequestMapping("/dangky")
+//    public String dangKyView(Model model){
+//        model.addAttribute(model)
+//        return "dangky";
+//    }
+    
   
         
 }
