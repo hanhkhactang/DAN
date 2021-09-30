@@ -9,7 +9,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navbar-dark">
             <div class="container">
           <!-- <a class="navbar-brand" href="index.html">Health</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-nav" aria-controls="probootstrap-nav" aria-expanded="false" aria-label="Toggle navigation">

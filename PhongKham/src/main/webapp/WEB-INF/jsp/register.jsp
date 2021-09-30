@@ -8,7 +8,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="text-center text-danger">Dang ky</h1>
+<h1 class="text-center text-danger">ĐĂNG KÝ</h1>
 <c:url value="/register" var="action" />
 
 <form:form class="text-danger" method="post" action="${action}" modelAttribute="user">

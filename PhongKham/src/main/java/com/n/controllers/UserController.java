@@ -83,7 +83,7 @@ public class UserController {
     
     @GetMapping("/login")
     public String loginView() {
-        return "login";
+        return "login1";
     }
     @GetMapping(path="/updateinformation")
     public String listCustomers(Model theModel) {
