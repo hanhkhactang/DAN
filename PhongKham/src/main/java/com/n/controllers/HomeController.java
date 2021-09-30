@@ -8,6 +8,7 @@ package com.n.controllers;
 import com.n.pojo.Cart;
 import com.n.pojo.Patient;
 import com.n.service.CategoryService;
+import com.n.service.NurseService;
 import com.n.service.PatientService;
 import com.n.service.ProductService;
 import com.n.utils.Utils;
@@ -35,7 +36,7 @@ public class HomeController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private PatientService patientService;
+    private NurseService nurseService;
     @ModelAttribute
     public void addAttributes(Model model, HttpSession session) {
         model.addAttribute("categories", this.categoryService.getCategories());
@@ -83,7 +84,7 @@ public class HomeController {
     }
     @PostMapping("/addPatient")
     public String adddPatient(@ModelAttribute("patient") Patient patient) {
-        patientService.addPatient(patient);
+        nurseService.savePatient(patient);
         return "redirect:/";
     }
     

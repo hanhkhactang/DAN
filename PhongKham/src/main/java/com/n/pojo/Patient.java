@@ -21,6 +21,20 @@ import javax.persistence.Table;
 @Table(name="patient")
 public class Patient {
 
+    /**
+     * @return the lichkham
+     */
+    public String getLichkham() {
+        return lichkham;
+    }
+
+    /**
+     * @param lichkham the lichkham to set
+     */
+    public void setLichkham(String lichkham) {
+        this.lichkham = lichkham;
+    }
+
    
     /**
      * @return the id
@@ -98,5 +112,6 @@ public class Patient {
     private String email;
     private boolean active;
     private String mess;
+    private String lichkham;
             
 }

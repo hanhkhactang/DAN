@@ -40,9 +40,9 @@ public class NurseRepositoryImpl implements NurseRepository{
 
     @Override
     public void savePatient(Patient patient) {
-        patient.setActive(true);
+       
         Session s = this.sessionFactory.getObject().getCurrentSession();
-        s.update(patient);
+        s.saveOrUpdate(patient);
     }
 
     @Override

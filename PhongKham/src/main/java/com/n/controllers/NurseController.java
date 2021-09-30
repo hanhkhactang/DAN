@@ -46,6 +46,7 @@ public class NurseController {
     
     @RequestMapping("/savePatient")
     public String savePatient(@ModelAttribute("patient") Patient patient){
+        patient.setActive(true);
         nurseService.savePatient(patient);
         String a = patient.getEmail();
         senEmail("benhviennguyenlap@gmail.com", a, "Xác nhận kịch khám", "Lịch khám của bạn đã được xác nhận");
