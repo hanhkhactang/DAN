@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addDoctor
-    Created on : Sep 6, 2021, 3:31:08 PM
+    Document   : editEmployee
+    Created on : Oct 1, 2021, 10:06:48 AM
     Author     : Neet Nguyen
 --%>
 
@@ -11,15 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add Employee</title>
+        <title>Edit Employee</title>
         <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
     </head>
     <body>
         <div class="main">
             <div class="register">
-                <h2>Add Employee Here</h2>
+                <h2>Edit Employee Here</h2>
                 
-                <form:form id="register" method="post" action="saveCustomer" modelAttribute="customer"> 
+                <form:form id="register" method="post" action="updateCustomer" modelAttribute="customer"> 
+                    <form:hidden path="id" />
                     <label for="firsname">First Name : </label>
                     <br>
                     <form:input path="firstName" type="text" name="fname" id="name" placeholder="Enter First Name"  />
@@ -44,18 +45,8 @@
                     <br>
                     <form:input path="cmnd" type="text" name="cmnd" id="name" placeholder="Enter Identity card number"  />
                     <br><br>
-                    <label for="username">Username : </label>
-                    <br>
-                    <form:input path="username" type="text" name="username" id="name" placeholder="Enter Username"  />
-                    <br><br>
-                    <label for="password">Password : </label>
-                    <br>
-                    <form:input path="password" type="password" name="password" id="name" placeholder="Enter Password"  />
-                    <br><br>
-                    <label for="confirm-password">Confirm Password : </label>
-                    <br>
-                    <form:input path="confirmPassword" type="password" name="confirm-password" id="name" placeholder="Enter Confirm Password" />
-                    <br><br>
+                    <form:hidden path="username" />
+                    <form:hidden path="password"/>
                     <label for="confirm-password">Role : </label>
                     <br>
                     <form:select id="name" path="userRole">
@@ -64,7 +55,7 @@
                         <form:option value="ROLE_NURSE">Nurse</form:option>
                     </form:select>  
                     <br><br>
-                    <input type="submit" value="Add Employee" name="submit" id="submit" />
+                    <input type="submit" value="Edit Employee" name="submit" id="submit" />
                 </form:form>
                 
             </div>

@@ -1,36 +1,49 @@
 <%-- 
     Document   : apoitment
-    Created on : Sep 19, 2021, 9:06:46 AM
+    Created on : Oct 1, 2021, 8:18:53 AM
     Author     : Neet Nguyen
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Register</title>
+        <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
     </head>
     <body>
-        <div>
-            <form:form modelAttribute="apoitment" method="post">
-                <form:hidden path="id"/>
-                <div class="form-group">
-                    <form:input type="text" path="name" />
-                </div>
-                <div class="form-group">
-                    <form:input type="text" path="email" />
-                </div>
-                <div class="form-group">
-                    <form:input type="text" path="mess" />
-                </div>
-                <div class="form-group">
-                    <form:input type="text" path="ngayHen" />
-                </div>                 
-            </form:form>
-        </div>      
+        <div class="main">
+            <div class="register">
+                <h2>Book Appointment Here</h2>
+                
+                <form:form id="register" method="post" action="addPatient" modelAttribute="patient"> 
+                    
+                    <label for="name">Full Name : </label>
+                    <br>
+                    <form:input path="name" type="text" name="name" id="name" placeholder="Enter Your Full Name" />
+                    <br><br>
+                    <label for="email">Email : </label>
+                    <br>
+                    <form:input path="email" type="email" name="email" id="name" placeholder="Enter Your Email" />
+                    <br><br>
+                    <label for="mess">Mess : </label>
+                    <br>
+                    <form:input path="mess" type="text" name="mess" id="name" placeholder="Enter Your Mess" />
+                    <br><br>
+                    <label for="lichkham">Date Appointment : </label>
+                    <br>
+                    <form:input path="lichkham" type="datetime-local" name="lichkham" id="name" placeholder="Enter Your Identity card number" />
+                    <br><br>     
+                    <input type="submit" value="Sign Up" name="submit" id="submit" />
+                </form:form>
+                
+            </div>
+            
+        </div>
+        
+        
     </body>
 </html>

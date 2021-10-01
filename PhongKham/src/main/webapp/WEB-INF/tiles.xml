@@ -49,9 +49,6 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     
     
     <definition name="login1" template="/WEB-INF/jsp/login.jsp"></definition>
-    
-    
-    
     <definition name="register" template="/WEB-INF/jsp/register.jsp"></definition>
     
     <definition name="adminView" extends="baseLayout">
@@ -66,24 +63,16 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content" value="/WEB-INF/jsp/administrator/listDoctor.jsp" />
         
     </definition>
-    <definition name="addDoctor" extends="baseLayout">
-        <put-attribute name="title" value="listDoctor" />
-        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
-        <put-attribute name="content" value="/WEB-INF/jsp/administrator/addDoctor.jsp" />
-        
+    <definition name="addDoctor" template="/WEB-INF/jsp/administrator/addDoctor.jsp">     
     </definition>
     
     <definition name="list-customers" extends="baseLayout">
         <put-attribute name="title" value="ListDocotr"/>
         <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/administrator/list-customer.jsp"/>
-    </definition>
-    <definition name="customer-form" template="/WEB-INF/jsp/administrator/customer-form.jsp">
-   
-    </definition>
+    </definition>  
     
-    <definition name="update-form" template="/WEB-INF/jsp/administrator/update-form.jsp">
-    </definition>
+    <definition name="editEmployee" template="/WEB-INF/jsp/administrator/editEmployee.jsp"></definition>
     
     <definition name="list-medicine" extends="baseLayout">  
         <put-attribute name="title" value="ListMedicine"/>
@@ -91,7 +80,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content" value="/WEB-INF/jsp/administrator/list-medicine.jsp"/>
     </definition>
     
-    <definition name="medicine-form" template="/WEB-INF/jsp/administrator/medicine-form.jsp">
+    <definition name="medicine-form" template="/WEB-INF/jsp/administrator/medicine.jsp">
     </definition>
     
     <definition name="updateinformation" extends="baseLayout">
@@ -114,8 +103,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     
     <definition name="editForm" template="/WEB-INF/jsp/editInformationForm.jsp">
     </definition>
-    <definition name="apoitment" template="/WEB-INF/jsp/apoitment.jsp">    
-    </definition>
+    
     
     
     <definition name="nurseView" extends="baseLayout">
@@ -132,7 +120,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="informationPatient" template="/WEB-INF/jsp/nurse/informationPatient.jsp">
     </definition>
     <definition name="dkkham" template="/WEB-INF/jsp/dkkham.jsp"></definition>
-    
+    <definition name="apoitment" template="/WEB-INF/jsp/apoitment.jsp">    
+    </definition>
     
     
     

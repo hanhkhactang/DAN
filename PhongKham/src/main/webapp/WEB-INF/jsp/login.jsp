@@ -19,7 +19,7 @@
             Da co loi! vui long quay lai sau!
         
             </div>
-    
+            
         </c:if>
         
         <c:if test="${param.accessDenied != null}">
@@ -50,6 +50,8 @@
                     Not a member? <a href="<c:url value="/register" />">Sign up</a>
                 </div>
             </form>
+            
+            
         </div>
     </body>
 </html>

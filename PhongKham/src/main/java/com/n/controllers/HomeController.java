@@ -76,17 +76,19 @@ public class HomeController {
         
         return "contact";
     }
-     @GetMapping("/dkkham")
+    @GetMapping("/dkkham")
     public String adddkkham(Model model) {
         Patient patient = new Patient();
         model.addAttribute("patient", patient);
-        return "dkkham";
+        return "apoitment";
     }
     @PostMapping("/addPatient")
     public String adddPatient(@ModelAttribute("patient") Patient patient) {
         nurseService.savePatient(patient);
         return "redirect:/";
     }
+    
+    
     
     
 }

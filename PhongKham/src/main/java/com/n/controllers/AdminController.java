@@ -39,7 +39,7 @@ public class AdminController {
     
     
     
-    //Quản lý bác sĩ
+    //Quản lý nhan vien
     @GetMapping("/list")
     public String listCustomers(Model theModel) {
         List < UserAccount > theCustomers = doctorService.getCustomers();
@@ -51,7 +51,7 @@ public class AdminController {
     public String showFormForAdd(Model theModel) {
         UserAccount theCustomer = new UserAccount();
         theModel.addAttribute("customer", theCustomer);
-        return "customer-form";
+        return "addDoctor";
     }
 
     @PostMapping("/saveCustomer")
@@ -71,7 +71,7 @@ public class AdminController {
         Model theModel) {
         UserAccount theCustomer = doctorService.getCustomer(id);
         theModel.addAttribute("customer", theCustomer);
-        return "update-form";
+        return "editEmployee";
     }
 
     @GetMapping("/delete")
@@ -101,6 +101,8 @@ public class AdminController {
         theModel.addAttribute("medicine", theMedicine);
         return "medicine-form";
     }
+    
+    
     
     
     @PostMapping("/saveMedicine")
