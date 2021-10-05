@@ -16,7 +16,9 @@
     <body>
         <div class="main">
             <div class="register">
-                <h2>Register Here</h2>
+                <h2>Register Here<c:if test="${currentUser != null}">
+    ${currentUser.email}
+</c:if></h2>
                 
                 <form:form id="register" method="post" action="${action}" modelAttribute="user"> 
                     <label for="firsname">First Name : </label>
