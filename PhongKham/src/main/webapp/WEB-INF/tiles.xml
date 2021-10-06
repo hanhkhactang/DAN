@@ -103,6 +103,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     
     <definition name="editForm" template="/WEB-INF/jsp/editInformationForm.jsp">
     </definition>
+    <definition name="changepasswork" template="/WEB-INF/jsp/changepasswork.jsp">
+    </definition>
     
     
     

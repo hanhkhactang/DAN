@@ -48,9 +48,8 @@
         
 
             <td>
-         <!-- display the update link --> <a href="${updateLink}">Update</a>
-         | <a href="${deleteLink}"
-         onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+         <!-- display the update link --> <a href="editForm">Update</a>
+         | <a href="changepassword">Change Password</a>
             </td>
 
        </tr>

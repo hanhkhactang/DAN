@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.n.service.AdminService;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.MailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
@@ -38,10 +40,15 @@ public class UserController {
     MailSender mailSender;
     @Autowired
     private AdminService doctorService;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
     
     @Autowired
     private WebAppValidator userValidator;
-    
+    @ModelAttribute
+    public void addAttributes(Model model, HttpSession session) {
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+    }
     @InitBinder
     public void init(WebDataBinder binder) {
         binder.setValidator(userValidator);
@@ -93,9 +100,10 @@ public class UserController {
     }
     
     @GetMapping(path="/editForm")
-    public String showFormForUpdate(@RequestParam("customerId") int id,
-        Model theModel) {
-        UserAccount user = doctorService.getCustomer(id);
+    public String showFormForUpdate(
+        Model theModel,HttpSession session) {
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        UserAccount user = doctorService.getCustomer(u.getId());
         theModel.addAttribute("customer", user);
         return "editForm";
     }
@@ -111,6 +119,23 @@ public class UserController {
         Patient patient = new Patient();
         model.addAttribute("patient", patient);
         return "apoitment";
+    }
+    @GetMapping(path="/changepassword")
+    public String showFormForUpdatepw(
+        Model theModel,HttpSession session) {
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        UserAccount user = doctorService.getCustomer(u.getId());
+        theModel.addAttribute("customer", user);
+        return "changepasswork";
+    }
+    
+    @PostMapping("/updatepasswordUser")
+    public String updatepasswordUser(@ModelAttribute("customer") UserAccount user) {
+        if (user.getPassword().equals(user.getConfirmPassword())) {
+            doctorService.updateCustomer(user);
+            return "redirect:/updateinformation";
+        }
+        return "redirect:/";
     }
     
 //    @RequestMapping("/dangky")
