@@ -42,7 +42,9 @@ public class HomeController {
     public void addAttributes(Model model, HttpSession session) {
         model.addAttribute("categories", this.categoryService.getCategories());
         model.addAttribute("cartStats", Utils.getCartStats((Map<Integer, Cart>) session.getAttribute("cart")));
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
     }
+    
     
     @RequestMapping("/")
     public String index(Model model, 

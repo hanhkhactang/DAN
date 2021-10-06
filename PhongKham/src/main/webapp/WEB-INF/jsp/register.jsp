@@ -20,7 +20,8 @@
     ${currentUser.email}
 </c:if></h2>
                 
-                <form:form id="register" method="post" action="${action}" modelAttribute="user"> 
+                <form:form id="register" method="post" 
+                           enctype="multipart/form-data" action="${action}" modelAttribute="user"> 
                     <label for="firsname">First Name : </label>
                     <br>
                     <form:input path="firstName" type="text" name="fname" id="name" placeholder="Enter Your First Name" />
@@ -41,6 +42,10 @@
                     <br>
                     <form:input path="cmnd" type="text" name="cmnd" id="name" placeholder="Enter Your Identity card number" />
                     <br><br>
+                    <label for="phone">Phone : </label>
+                    <br>
+                    <form:input path="phone" type="text" name="phone" id="name" placeholder="Enter Phone"  />
+                    <br><br>
                     <label for="username">Username : </label>
                     <br>
                     <form:input path="username" type="text" name="username" id="name" placeholder="Enter Your Username" />
@@ -52,6 +57,10 @@
                     <label for="confirm-password">Confirm Password : </label>
                     <br>
                     <form:input path="confirmPassword" type="password" name="confirm-password" id="name" placeholder="Enter Your Confirm Password" />
+                    <br><br>
+                    <label for="avatar">Avatar : </label>
+                    <br>
+                    <form:input path="file" type="file" name="avatar"  />
                     <br><br>
                     <input type="submit" value="Sign Up" name="submit" id="submit" />
                 </form:form>

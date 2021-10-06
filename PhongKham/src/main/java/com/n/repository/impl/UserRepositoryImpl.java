@@ -5,9 +5,13 @@
  */
 package com.n.repository.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.n.pojo.UserAccount;
 import com.n.repository.UserRepository;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -30,25 +34,23 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserRepositoryImpl implements  UserRepository {
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    
+    
+    
+    
+  
 
     @Override
     public boolean addUser(UserAccount user) {
         
-        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        user.setUserRole(UserAccount.ROLE_USER);
-        user.setActive(true);
         
+        
+        
+     
         Session s = this.sessionFactory.getObject().getCurrentSession();
-        try {
-            s.save(user);
-            return true;
-        } catch (HibernateException ex) {
-            ex.printStackTrace();
-        }
+        s.save(user);
+        return true;
         
-        return false;
     }
 
     @Override

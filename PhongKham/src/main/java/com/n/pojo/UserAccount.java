@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -23,6 +24,34 @@ import javax.validation.constraints.Pattern;
 @Entity
 @Table(name = "user")
 public class UserAccount implements Serializable {
+
+    /**
+     * @return the avatar
+     */
+    public String getAvatar() {
+        return avatar;
+    }
+
+    /**
+     * @param avatar the avatar to set
+     */
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     /**
      * @return the diaChi
@@ -81,7 +110,10 @@ public class UserAccount implements Serializable {
     @Column(name="diachi")
     private String diaChi;
     private String cmnd;
-    
+    private String avatar;
+    @Transient
+    private MultipartFile file;
+     
     /**
      * @return the confirmPassword
      */

@@ -19,7 +19,7 @@ public class LogoutHandler implements LogoutSuccessHandler{
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse responce, Authentication a) throws IOException, ServletException {
         request.getSession().removeAttribute("currentUser");
-        responce.sendRedirect("/PhongKham/login");
+        responce.sendRedirect("/PhongKham");
     }
     
 }

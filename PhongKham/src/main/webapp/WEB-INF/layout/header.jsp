@@ -32,6 +32,12 @@
                   
                 <li class="nav-item">
                     <a href="<c:url value="/updateinformation" />" class="nav-link">
+                        <c:if test="${currentUser.avatar != null}">
+                            <img style="width: 30px;" src="${currentUser.avatar}" class="rounded-circle"/>
+                        </c:if>
+                        <c:if test="${currentUser.avatar == null}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </c:if>
                         ${pageContext.request.userPrincipal.name}</a>
                 </li>
                 <li class="nav-item">
