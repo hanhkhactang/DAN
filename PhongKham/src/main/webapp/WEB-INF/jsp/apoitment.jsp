@@ -21,13 +21,7 @@
                 
                 <form:form id="register" method="post" action="addPatient" modelAttribute="patient"> 
                     
-                    <label for="name">Full Name : </label>
-                    <br>
-                    <form:input path="name" type="text" name="name" id="name" placeholder="Enter Your Full Name" />
-                    <br><br>
-                    <label for="email">Email : </label>
-                    <br>
-                    <form:input path="email" type="email" name="email" id="name" placeholder="Enter Your Email" />
+                    
                     <br><br>
                     <label for="mess">Mess : </label>
                     <br>

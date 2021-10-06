@@ -6,6 +6,7 @@
 package com.n.configs;
 
 import com.n.config.handler.LoginSuccessHandler;
+import com.n.config.handler.LogoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -37,6 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
     @Autowired
     public AuthenticationSuccessHandler loginSuccessHandler;
+    @Autowired
+    public LogoutSuccessHandler LogoutHandler;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -52,6 +56,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationSuccessHandler loginSuccessHandler(){
         return new LoginSuccessHandler();
     }
+    @Bean
+    public LogoutSuccessHandler logoutSuccessHandler(){
+        return new LogoutHandler();
+    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/login")
@@ -61,7 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().defaultSuccessUrl("/")
                 .failureUrl("/login?error");
         http.formLogin().successHandler(this.loginSuccessHandler);
-        http.logout().logoutSuccessUrl("/login");
+        //http.logout().logoutSuccessUrl("/login");
+        http.logout().logoutSuccessHandler(this.LogoutHandler);
         http.exceptionHandling()
                 .accessDeniedPage("/login?accessDenied");
         http.authorizeRequests().antMatchers("/").permitAll()
@@ -76,6 +85,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         
         http.authorizeRequests().antMatchers("/").permitAll()
                .antMatchers("/nurse/**").access("hasRole('ROLE_NURSE')");
+        http.authorizeRequests().antMatchers("/").permitAll()
+               .antMatchers("/patient/**").access("hasRole('ROLE_USER')");
         
         http.authorizeRequests().antMatchers("/").permitAll()
                .antMatchers("**/updateinformation").access("hasRole('ROLE_ADMIN')");

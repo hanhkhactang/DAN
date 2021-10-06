@@ -6,6 +6,7 @@
 package com.n.repository.impl;
 
 import com.n.pojo.Patient;
+import com.n.pojo.UserAccount;
 import com.n.repository.PatientRepository;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,13 +32,13 @@ public class PatientRepositoryImpl implements PatientRepository{
     public SessionFactory sessionFactory;
 
     @Override
-    public void savePatient(Patient patient) {
+    public void savePatient(Patient patient ) {
         patient.setActive(false);
         Session s = this.SessionFactory.getObject().getCurrentSession();
         s.save(s);
     }
     @Override
-    public void addPatient(Patient patient) {
+    public void addPatient(Patient patient, UserAccount creater) {
         patient.setActive(false);
         Session s = sessionFactory.getCurrentSession();
         s.save(patient);

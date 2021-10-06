@@ -7,6 +7,7 @@ package com.n.controllers;
 
 import com.n.pojo.Cart;
 import com.n.pojo.Patient;
+import com.n.pojo.UserAccount;
 import com.n.service.CategoryService;
 import com.n.service.NurseService;
 import com.n.service.PatientService;
@@ -77,17 +78,6 @@ public class HomeController {
     public String contactView(){
         
         return "contact";
-    }
-    @GetMapping("/dkkham")
-    public String adddkkham(Model model) {
-        Patient patient = new Patient();
-        model.addAttribute("patient", patient);
-        return "apoitment";
-    }
-    @PostMapping("/addPatient")
-    public String adddPatient(@ModelAttribute("patient") Patient patient) {
-        nurseService.savePatient(patient);
-        return "redirect:/";
     }
     
     

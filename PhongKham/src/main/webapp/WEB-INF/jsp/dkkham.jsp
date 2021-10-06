@@ -50,18 +50,6 @@
       <!-- need to associate this data with customer id -->
         <form:hidden path="id" />
 
-            <div class="form-group">
-                    <label for="name" class="col-md-3 control-label">Name</label>
-                    <div class="col-md-9">
-                        <form:input path="name" cssClass="form-control" />
-                    </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-md-3 control-label">Email</label>
-                <div class="col-md-9">
-                    <form:input path="email" cssClass="form-control" />
-                </div>
-            </div>
 
             <div class="form-group">
                 <label for="mess" class="col-md-3 control-label">Mess</label>
@@ -85,8 +73,7 @@
             </form:form>
                 </div>
             </div>
-        </div>
-    </div>
+
 </body>
 </html>
 

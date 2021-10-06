@@ -6,6 +6,7 @@
 package com.n.service.impl;
 
 import com.n.pojo.Patient;
+import com.n.pojo.UserAccount;
 import com.n.repository.PatientRepository;
 import com.n.service.PatientService;
 import java.util.List;
@@ -26,8 +27,8 @@ public class PatientServiceImpl implements PatientService{
         patientRepository.savePatient(patient);
     }
     @Override
-    public void addPatient(Patient patient) {
-        patientRepository.addPatient(patient);
+    public void addPatient(Patient patient,UserAccount creater) {
+        patientRepository.addPatient(patient, creater);
     }
     
     

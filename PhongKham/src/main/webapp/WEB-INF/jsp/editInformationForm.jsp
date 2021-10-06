@@ -39,7 +39,7 @@
                 <label for="firstname" class="col-md-3 control-label">First
                     Name</label>
                 <div class="col-md-9">
-                    <form:input path="firstName" cssClass="form-control" />
+                    <form:input path="firstName" cssClass="form-control"  />
                 </div>
         </div>
         <div class="form-group">

@@ -6,6 +6,7 @@
 package com.n.repository;
 
 import com.n.pojo.Patient;
+import com.n.pojo.UserAccount;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ import java.util.List;
  */
 public interface PatientRepository {
     public void savePatient(Patient patient);
-    public void addPatient(Patient patient);
+    public void addPatient(Patient patient,UserAccount creater);
     
 }
