@@ -7,6 +7,7 @@ package com.n.controllers;
 
 import com.n.pojo.Medicine;
 import com.n.pojo.UserAccount;
+import com.n.pojo.phanca;
 import com.n.service.MedicineService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,15 @@ public class AdminController {
         theModel.addAttribute("customers", theCustomers);
         return "list-customers";
     }
+    
+    @GetMapping("/phanca")
+    public String listphanca(Model theModel) {
+        List < phanca > theCustomers = doctorService.getphanca();
+        theModel.addAttribute("customers", theCustomers);
+        List < UserAccount > user = doctorService.getCustomers();
+        theModel.addAttribute("user", user);
+        return "phanca";
+    }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model theModel) {
@@ -76,6 +86,26 @@ public class AdminController {
 
     @GetMapping("/delete")
     public String deleteCustomer(@RequestParam("customerId") int id) {
+        doctorService.deleteCustomer(id);
+        return "redirect:/admin/list";
+    }
+    @GetMapping("/updatephanca")
+    public String updatephanca(@RequestParam("customerId") int thu,
+        Model theModel) {
+        phanca theCustomer = doctorService.getPhanca(thu);
+        theModel.addAttribute("customer", theCustomer);
+        List < UserAccount > user = doctorService.getCustomers();
+        theModel.addAttribute("user", user);
+        return "editphanca";
+    }
+    @PostMapping("/updatephanca")
+    public String updatephanca(@ModelAttribute("customer") phanca theCustomer) {
+        doctorService.updatePhanca(theCustomer);
+        return "redirect:/admin/phanca";
+    }
+
+    @GetMapping("/deletephanca")
+    public String deletephanca(@RequestParam("customerId") int id) {
         doctorService.deleteCustomer(id);
         return "redirect:/admin/list";
     }

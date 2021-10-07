@@ -6,6 +6,7 @@
 package com.n.repository.impl;
 
 import com.n.pojo.UserAccount;
+import com.n.pojo.phanca;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -48,6 +49,17 @@ public class AdminRepositoryImpl implements AdminRepository{
         return query.getResultList();
         
     }
+    @Override
+    public List<phanca> getphanca() {
+        Session session = sessionFactory.getCurrentSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery < phanca > cq = cb.createQuery(phanca.class);
+        Root < phanca > root = cq.from(phanca.class);
+        cq.select(root);
+        Query query = session.createQuery(cq);
+        return query.getResultList();
+        
+    }
 
     @Override
     public void saveCustomer(UserAccount customer) {
@@ -61,6 +73,12 @@ public class AdminRepositoryImpl implements AdminRepository{
     public UserAccount getCustomer(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
         UserAccount theCustomer = currentSession.get(UserAccount.class, id);
+        return theCustomer;
+    }
+    @Override
+    public phanca getPhanca(int thu) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        phanca theCustomer = currentSession.get(phanca.class, thu);
         return theCustomer;
     }
     @Override
@@ -79,6 +97,12 @@ public class AdminRepositoryImpl implements AdminRepository{
 
     @Override
     public void updateCustomer(UserAccount customer) {
+//        Session currentSession = sessionFactory.getCurrentSession();
+        Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
+        s.saveOrUpdate(customer);
+    }
+    @Override
+    public void updatePhanca(phanca customer) {
 //        Session currentSession = sessionFactory.getCurrentSession();
         Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
         s.saveOrUpdate(customer);

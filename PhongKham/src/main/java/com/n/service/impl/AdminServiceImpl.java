@@ -6,6 +6,7 @@
 package com.n.service.impl;
 
 import com.n.pojo.UserAccount;
+import com.n.pojo.phanca;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,11 @@ public class AdminServiceImpl implements AdminService{
         return doctorRepository.getCustomer();
     }
     
+    @Override
+    public List<phanca> getphanca() {
+        return doctorRepository.getphanca();
+    }
+    
        
 
     @Override
@@ -42,6 +48,11 @@ public class AdminServiceImpl implements AdminService{
     public UserAccount getCustomer(int id) {
         return doctorRepository.getCustomer(id);
     }
+    
+    @Override
+    public phanca getPhanca(int thu) {
+        return doctorRepository.getPhanca(thu);
+    }
 
     @Override
     public void deleteCustomer(int id) {
@@ -51,6 +62,11 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public void updateCustomer(UserAccount customer) {
         doctorRepository.updateCustomer(customer);
+    }
+    @Override
+    
+    public void updatePhanca(phanca customer) {
+        doctorRepository.updatePhanca(customer);
     }
 
     @Override

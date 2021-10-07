@@ -43,3 +43,8 @@
         
     </body>
 </html>
+<c:forEach var="tempCustomer" items="${customers}">
+                        <c:if test="${tempCustomer.userRole == 'ROLE_ADMIN'}">
+                        <form:option value="${tempCustomer.id}">${tempCustomer.firstName}</form:option>
+                        </c:if>>
+                        </c:forEach>

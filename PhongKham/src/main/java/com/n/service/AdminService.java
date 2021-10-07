@@ -6,6 +6,7 @@
 package com.n.service;
 
 import com.n.pojo.UserAccount;
+import com.n.pojo.phanca;
 import java.util.List;
 
 /**
@@ -14,12 +15,18 @@ import java.util.List;
  */
 public interface AdminService {
     public List < UserAccount > getCustomers();
+    
+    public List < phanca > getphanca();
 
     public void saveCustomer(UserAccount customer);
     
     public void updateCustomer(UserAccount customer);
+    
+    public void updatePhanca(phanca customer);
 
     public UserAccount getCustomer(int id);
+    
+    public phanca getPhanca(int thu);
     
     public UserAccount getCustomer(String username);
 

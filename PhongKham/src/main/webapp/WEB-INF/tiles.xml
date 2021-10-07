@@ -73,6 +73,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     </definition>  
     
     <definition name="editEmployee" template="/WEB-INF/jsp/administrator/editEmployee.jsp"></definition>
+    <definition name="editphanca" template="/WEB-INF/jsp/administrator/editphanca.jsp"></definition>
+    
+    <definition name="phanca" template="/WEB-INF/jsp/administrator/phanca.jsp"></definition>
     
     <definition name="list-medicine" extends="baseLayout">  
         <put-attribute name="title" value="ListMedicine"/>
