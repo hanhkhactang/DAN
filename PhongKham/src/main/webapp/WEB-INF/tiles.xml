@@ -76,6 +76,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="editphanca" template="/WEB-INF/jsp/administrator/editphanca.jsp"></definition>
     
     <definition name="phanca" template="/WEB-INF/jsp/administrator/phanca.jsp"></definition>
+    <definition name="phancadoctor" template="/WEB-INF/jsp/doctor/phanca.jsp"></definition>
+    <definition name="phancanurse" template="/WEB-INF/jsp/nurse/phanca.jsp"></definition>
     
     <definition name="list-medicine" extends="baseLayout">  
         <put-attribute name="title" value="ListMedicine"/>

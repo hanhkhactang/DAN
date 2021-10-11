@@ -7,8 +7,12 @@ package com.n.controllers;
 
 import com.n.pojo.Medicine;
 import com.n.pojo.Patient;
+import com.n.pojo.UserAccount;
+import com.n.pojo.phanca;
+import com.n.service.AdminService;
 import com.n.service.NurseService;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -29,6 +33,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NurseController {
     @Autowired
     private NurseService nurseService;
+    
+    @Autowired
+    private AdminService adminService;
+    
     @Autowired
     MailSender mailSender;
     @RequestMapping("")
@@ -71,5 +79,14 @@ public class NurseController {
         return "informationPatient";
         
     }
-            
+    
+    @GetMapping("/phanca")
+    public String listphanca(Model theModel,HttpSession session) {
+        List < phanca > theCustomers = adminService.getphanca();
+        theModel.addAttribute("customers", theCustomers);
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        UserAccount user = adminService.getCustomer(u.getId());
+        theModel.addAttribute("currentUser", user);
+        return "phancanurse";
+    }
 }
