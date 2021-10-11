@@ -37,7 +37,7 @@
         <form:hidden path="id_user" />
 
             <div class="form-group">
-                    <label for="name" class="col-md-3 control-label">Name</label>
+                    <label for="name" class="col-md-3 control-label">Name${Patientid}</label>
                     <div class="col-md-9">
                         <form:input path="name" cssClass="form-control" />
                     </div>

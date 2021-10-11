@@ -7,6 +7,7 @@ package com.n.controllers;
 
 import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
+import com.n.pojo.benhan;
 import com.n.pojo.phanca;
 import com.n.service.AdminService;
 import com.n.service.DoctorService;
@@ -20,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -65,6 +67,25 @@ public class DoctorController {
         UserAccount user = adminService.getCustomer(u.getId());
         theModel.addAttribute("currentUser", user);
         return "phancadoctor";
+    }
+    @RequestMapping("/patient-list")
+    public String listPatient1(Model model){
+        List < Patient > patient = nurseService.getPatient();
+        model.addAttribute("patients", patient);
+        
+        return "patient-list";
+    }
+    
+    @GetMapping("/benhan")
+    public String showFormPatient(@RequestParam("patientId") int id,
+            Model model) {
+        List < benhan > benhan= doctorService.getbenhan(id);
+        
+        model.addAttribute("benhan", benhan);
+        List < UserAccount > user = adminService.getCustomers();
+        model.addAttribute("user", user);
+        return "benhan";
+        
     }
     
     

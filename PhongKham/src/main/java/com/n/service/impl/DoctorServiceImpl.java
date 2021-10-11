@@ -6,6 +6,7 @@
 package com.n.service.impl;
 
 import com.n.pojo.UserAccount;
+import com.n.pojo.benhan;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,10 @@ public class DoctorServiceImpl implements DoctorService{
     @Override
     public UserAccount getCustomer(String username) {
        return doctorRepository.getCustomer(username);
+    }
+    @Override
+    public List<benhan> getbenhan(int id_patient){
+    return doctorRepository.getbenhan(id_patient);
     }
     
 }

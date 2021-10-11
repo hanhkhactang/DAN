@@ -6,6 +6,7 @@
 package com.n.service;
 
 import com.n.pojo.UserAccount;
+import com.n.pojo.benhan;
 import java.util.List;
 
 /**
@@ -24,4 +25,6 @@ public interface DoctorService {
     public UserAccount getCustomer(String username);
 
     public void deleteCustomer(int id);
+    
+    public List<benhan> getbenhan(int id_patient);
 }
