@@ -61,6 +61,13 @@ public class UserController {
         
     }
     
+    @GetMapping("/register1")
+    public String registerView1(Model model) {
+        model.addAttribute("user", new UserAccount());
+        return "register1";
+        
+    }
+    
     public void senEmail(String from, String to,String subject,String content)
     {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -71,17 +78,18 @@ public class UserController {
         
         mailSender.send(mailMessage);
     }
-    @PostMapping("/register")
+    
+    @PostMapping("/register1")
     public String register(Model model, 
             @ModelAttribute(value = "user") @Valid UserAccount user,
             BindingResult result) {
         if (result.hasErrors()) {
-            return "register";
+            return "register1";
         }
         
         if (this.userDetailsService.addUser(user) == false)  {
             model.addAttribute("errMsg", "Something wrong!!!");
-            return "register";
+            return "register1";
         }
             
         

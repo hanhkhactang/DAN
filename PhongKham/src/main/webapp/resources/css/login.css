@@ -1,9 +1,15 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(123deg,#2980b9,#8e44ad);
+/*    background: linear-gradient(123deg,#2980b9,#8e44ad);*/
+    background-image: url(../images/3.jpg);
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
     height: 100vh;
     overflow: hidden;
+    font-weight: 600;
+    font-size: 16px;
 }
 .center{
     position: absolute;
@@ -119,3 +125,45 @@ input[type="submit"]:hover{
     text-decoration: underline;
 }
 
+
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 70px;
+}
+
+.nav-area{
+    list-style: none;
+}
+
+.nav-area li{
+    display: inline-block;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.nav-area li a{
+    transition: .3s;
+    color: #fff;
+}
+
+.nav-area li a:hover{
+    color: #d22938;
+}
+.logo{
+    cursor: pointer;
+}

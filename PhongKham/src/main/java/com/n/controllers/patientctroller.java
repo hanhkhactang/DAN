@@ -34,12 +34,12 @@ public class patientctroller {
     }
     @PostMapping("/addPatient")
     public String adddPatient(@ModelAttribute("patient") Patient patient, HttpSession session) {
-    UserAccount u =  (UserAccount) session.getAttribute("currentUser");
-    patient.setEmail(u.getEmail());
-    patient.setName(u.getFirstName());
-    patient.setId_user(u.getId());
-    nurseService.savePatient(patient);
-    return "redirect:/";
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        patient.setEmail(u.getEmail());
+        patient.setName(u.getFirstName());
+        patient.setId_user(u.getId());
+        nurseService.savePatient(patient);
+        return "redirect:/";
     }
     
 }

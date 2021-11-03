@@ -5,6 +5,8 @@
  */
 package com.n.service.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.n.pojo.UserAccount;
 import com.n.pojo.phanca;
 import java.util.List;
@@ -13,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.n.repository.AdminRepository;
 import com.n.service.AdminService;
+import java.io.IOException;
+import java.util.Map;
 
 /**
  *
@@ -24,6 +28,9 @@ public class AdminServiceImpl implements AdminService{
     
     @Autowired
     private AdminRepository doctorRepository;
+    
+    @Autowired(required = false)
+    private Cloudinary cloudinary;
 
     @Override
     public List<UserAccount> getCustomers() {
@@ -61,7 +68,17 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public void updateCustomer(UserAccount customer) {
-        doctorRepository.updateCustomer(customer);
+        try{
+   
+            Map r = this.cloudinary.uploader().upload(customer.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type", "auto"));
+            
+            customer.setAvatar((String) r.get("secure_url"));
+            
+            doctorRepository.updateCustomer(customer);
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
     }
     @Override
     

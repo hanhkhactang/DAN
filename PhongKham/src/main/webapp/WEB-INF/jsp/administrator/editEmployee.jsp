@@ -55,6 +55,7 @@
                         <form:option value="ROLE_NURSE">Nurse</form:option>
                     </form:select>  
                     <br><br>
+                    <form:hidden path="avatar"/>
                     <input type="submit" value="Edit Employee" name="submit" id="submit" />
                 </form:form>
                 

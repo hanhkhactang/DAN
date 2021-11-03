@@ -15,6 +15,34 @@
         <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
     </head>
     <body>
+        <header>
+            <a href="<c:url value="/" />"><img src="<c:url value="/images/logo.png"/>" alt="" class="logo"/><a>
+            <nav>
+                <ul class="nav-area">
+                    <li><a href="<c:url value="/"/>">Home</a></li>
+                    <li><a href="<c:url value="/departments" />">Departments</a></li>
+                    <li><a href="<c:url value="/about" />">About</a></li>
+                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                        <li>
+                            <a href="<c:url value="/updateinformation" />">
+                                <c:if test="${currentUser.avatar != null}">
+                                    <img src="${currentUser.avatar}" class="avatar"/>
+                                    
+                                </c:if>
+                                <c:if test="${currentUser.avatar == null}">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </c:if>
+                                ${pageContext.request.userPrincipal.name}
+                                    
+                            </a>
+                        </li>
+                    </c:if>
+<!--                    <li><a href="<c:url value="/login" />">Login</a></li>-->
+                </ul>
+            </nav>           
+        </header>
+        
         <div class="main">
             <div class="register">
                 <h2>Book Appointment Here</h2>
@@ -31,7 +59,7 @@
                     <br>
                     <form:input path="lichkham" type="datetime-local" name="lichkham" id="name" placeholder="Enter Your Identity card number" />
                     <br><br>     
-                    <input type="submit" value="Sign Up" name="submit" id="submit" />
+                    <input type="submit" value="Take appointment" name="submit" id="submit" />
                 </form:form>
                 
             </div>

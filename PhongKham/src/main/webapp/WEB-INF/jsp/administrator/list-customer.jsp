@@ -10,7 +10,6 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>CRM - Customer Relationship Manager</h2>
    <hr />
 
    <input type="button" value="Add Customer"
@@ -54,7 +53,7 @@
             <td>
          <!-- display the update link --> <a href="${updateLink}">Update</a>
          | <a href="${deleteLink}"
-         onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+         onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">Delete</a>
             </td>
 
        </tr>

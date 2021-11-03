@@ -1,89 +1,69 @@
-<%-- 
-    Document   : editInformationForm
-    Created on : Sep 18, 2021, 8:53:58 PM
-    Author     : ADMIN
---%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Spring MVC 5 - form handling | Java Guides</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
- rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
-</head>
-<body>
- <div class="container">
-  <div class="col-md-offset-2 col-md-7">
-   <h2 class="text-center">Spring MVC 5 + Hibernate 5 + JSP + MySQL
-    Example</h2>
-   <div class="panel panel-info">
-    <div class="panel-heading">
-     <div class="panel-title">Add Customer</div>
-    </div>
-    <div class="panel-body">
-     <form:form action="updateUser" cssClass="form-horizontal"
-      method="post" modelAttribute="customer">
-
-      <!-- need to associate this data with customer id -->
-      <form:hidden path="id" />
-
-        <div class="form-group">
-                <label for="firstname" class="col-md-3 control-label">First
-                    Name</label>
-                <div class="col-md-9">
-                    <form:input path="firstName" cssClass="form-control"  />
-                </div>
-        </div>
-        <div class="form-group">
-            <label for="lastname" class="col-md-3 control-label">Last
-                Name</label>
-            <div class="col-md-9">
-                <form:input path="lastName" cssClass="form-control" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Edit Employee</title>
+        <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <a href="<c:url value="/" />"><img src="<c:url value="/images/logo.png"/>" alt="" class="logo"/><a>
+            <nav>
+                <ul class="nav-area">
+                    <li><a href="<c:url value="/"/>">Home</a></li>
+                    <li><a href="<c:url value="/departments" />">Departments</a></li>
+                    <li><a href="<c:url value="/about" />">About</a></li>
+                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <li><a href="<c:url value="/logout" />">Logout</a></li>
+                </ul>
+            </nav>           
+        </header>
+        <div class="main">
+            <div class="register">
+                <h2>Edit Information Here</h2>
+                
+                <form:form enctype="multipart/form-data" id="register" method="post" action="updateUser" modelAttribute="customer"> 
+                    <form:hidden path="id" />
+                    <label for="firsname">First Name : </label>
+                    <br>
+                    <form:input path="firstName" type="text" name="fname" id="name" placeholder="Enter First Name"  />
+                    <br><br>
+                    <label for="lastname">Last Name : </label>
+                    <br>
+                    <form:input path="lastName" type="text" name="lname" id="name" placeholder="Enter Last Name"  />
+                    <br><br>
+                    <label for="email">Email : </label>
+                    <br>
+                    <form:input path="email" type="email" name="email" id="name" placeholder="Enter Email"  />
+                    <br><br>
+                    <label for="phone">Phone : </label>
+                    <br>
+                    <form:input path="phone" type="text" name="phone" id="name" placeholder="Enter Phone"  />
+                    <br><br>
+                    <label for="diachi">Address : </label>
+                    <br>
+                    <form:input path="diaChi" type="text" name="adress" id="name" placeholder="Enter Address" />
+                    <br><br>
+                    <label for="cmnd">Identity card number : </label>
+                    <br>
+                    <form:input path="cmnd" type="text" name="cmnd" id="name" placeholder="Enter Identity card number"  />
+                    <br><br>
+                    <form:hidden path="username" />
+                    <form:hidden path="password"/>
+                    <form:hidden path="userRole"/>
+                    <label for="avatar">Avatar : </label>
+                    <br>
+                    <form:input path="file" type="file" name="avatar"  />
+                    <input type="submit" value="Save information" name="submit" id="submit" />
+                </form:form>
+                
             </div>
+            
         </div>
-
-        <div class="form-group">
-            <label for="email" class="col-md-3 control-label">Email</label>
-            <div class="col-md-9">
-                <form:input path="email" cssClass="form-control" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-md-3 control-label">CMND</label>
-            <div class="col-md-9">
-                <form:input path="cmnd" cssClass="form-control" />
-            </div>
-        </div>
-        <div class="form-group">
-        <label for="Address" class="col-md-3 control-label">Address</label>
-            <div class="col-md-9">
-                <form:input path="diaChi" cssClass="form-control" />
-            </div>
-        </div>
-        <form:hidden path="username" />
-        <form:hidden path="password" />
-        <form:hidden path="userRole"/>
         
-
-      <div class="form-group">
-       <!-- Button -->
-       <div class="col-md-offset-3 col-md-9">
-        <form:button cssClass="btn btn-primary">Submit</form:button>
-       </div>
-      </div>
-
-     </form:form>
-    </div>
-   </div>
-  </div>
- </div>
-</body>
+        
+    </body>
 </html>

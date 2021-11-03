@@ -11,13 +11,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add Employee</title>
+        <title>JSP Page</title>
         <link href="<c:url value="/css/register1.css"/>" rel="stylesheet" />
     </head>
     <body>
         <div class="container"> 
-            <div class="title">Add Employee</div>
-            <form:form action="saveCustomer" method="post" modelAttribute="customer"> 
+            <div class="title">Registration</div>
+            <form:form action="${action}" enctype="multipart/form-data" method="post" modelAttribute="user"> 
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
@@ -56,15 +56,11 @@
                         <form:input path="confirmPassword" type="password" placeholder="Enter Your Confirm Password"/>
                     </div>
                     <div class="input-box">
-                        <span class="details">Role</span>
-                        <form:select id="name" path="userRole">
-                            <form:option value="ROLE_ADMIN">Administrator</form:option>
-                            <form:option value="ROLE_DOCTOR">Doctor</form:option>
-                            <form:option value="ROLE_NURSE">Nurse</form:option>
-                        </form:select>       
+                        <span class="details">Avatar</span>
+                        <form:input path="file" type="file" />
                     </div>
                     <div class="button">
-                        <input type="submit" value="Add Employee" />
+                        <input type="submit" value="Register" />
                     </div>
                 </div>
                 

@@ -1,9 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
-    background: linear-gradient(123deg,#2980b9,#8e44ad);
+    background-image: url(../images/3.jpg);
+    background-size: cover;
+    font-size: 16px;
  
 }
 div.main{
@@ -74,4 +77,49 @@ input#submit{
 
 label,span,h2{
     text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+
+a{
+    text-decoration: none;
+}
+
+header{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 70px;
+}
+
+.nav-area{
+    list-style: none;
+}
+
+.nav-area li{
+    display: inline-block;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.nav-area li a{
+    transition: .3s;
+    color: #fff;
+}
+
+.nav-area li a:hover{
+    color: #d22938;
+}
+.logo{
+    cursor: pointer;
+}
+
+.avatar{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }

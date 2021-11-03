@@ -24,7 +24,7 @@
               <li class="nav-item"><a href="<c:url value="/contact" />" class="nav-link">Contact</a></li>
               <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item"><a href="<c:url value="/login" />" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>
+                <li class="nav-item"><a href="<c:url value="/register1" />" class="nav-link">Dang ky</a></li>
 
               </c:if>
                 

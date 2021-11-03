@@ -29,7 +29,19 @@
              </div>
      
         </c:if>
-        
+        <header>
+            <a href="<c:url value="/" />"><img src="<c:url value="/images/logo.png"/>" alt="" class="logo"/><a>
+            <nav>
+                <ul class="nav-area">
+                    <li><a href="<c:url value="/"/>">Home</a></li>
+                    <li><a href="<c:url value="/departments" />">Departments</a></li>
+                    <li><a href="<c:url value="/about" />">About</a></li>
+                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <li><a href="<c:url value="/register1" />">Sign Up</a></li>
+                </ul>
+            </nav>           
+        </header>
+ 
         <div class="center">
             <h1>Login</h1>
             <c:url value="/login" var="action"/>
@@ -47,7 +59,7 @@
                 <div class="pass">Forgot Password</div>
                 <input type="submit" value="Login" />
                 <div class="signup_link">
-                    Not a member? <a href="<c:url value="/register" />">Sign up</a>
+                    Not a member? <a href="<c:url value="/register1" />">Sign up</a>
                 </div>
             </form>
             

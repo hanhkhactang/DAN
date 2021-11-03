@@ -135,7 +135,7 @@
                     <h2 class="text-white display-4">Specialists in Family  Healthcare</h2>
                     <p class="text-white mb-5 lead">Far far away, behind the word mountains, far from the countries Vokalia.</p>
                     <div class="row justify-content-center mb-5">
-                        <div class="col-md-4"><a href="<c:url value="/dkkham" />" class="btn btn-secondary btn-block">Appointment <span class="icon-arrow-right"></span></a></div>
+                        <div class="col-md-4"><a href="<c:url value="/patient/dkkham" />" class="btn btn-secondary btn-block">Appointment <span class="icon-arrow-right"></span></a></div>
                     </div>
                 </div>
             </div>

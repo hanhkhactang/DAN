@@ -14,11 +14,23 @@
         <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
     </head>
     <body>
+        <header>
+            <a href="<c:url value="/" />"><img src="<c:url value="/images/logo.png"/>" alt="" class="logo"/><a>
+            <nav>
+                <ul class="nav-area">
+                    <li><a href="<c:url value="/"/>">Home</a></li>
+                    <li><a href="<c:url value="/departments" />">Departments</a></li>
+                    <li><a href="<c:url value="/about" />">About</a></li>
+                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <li><a href="<c:url value="/login" />">Login</a></li>
+                </ul>
+            </nav>           
+        </header>
         <div class="main">
             <div class="register">
                 <h2>Register Here<c:if test="${currentUser != null}">
-    ${currentUser.email}
-</c:if></h2>
+                    ${currentUser.email}
+                </c:if></h2>
                 
                 <form:form id="register" method="post" 
                            enctype="multipart/form-data" action="${action}" modelAttribute="user"> 

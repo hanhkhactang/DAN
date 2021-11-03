@@ -1,78 +1,82 @@
 <%-- 
-    Document   : informationPatient
-    Created on : Sep 22, 2021, 4:34:39 PM
+    Document   : medicine
+    Created on : Oct 1, 2021, 9:42:52 AM
     Author     : Neet Nguyen
 --%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Spring MVC 5 - form handling | Java Guides</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
- rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
-</head>
-<body>
-<div class="container">
-    <div class="col-md-offset-2 col-md-7">
-    <h2 class="text-center">Spring MVC 5 + Hibernate 5 + JSP + MySQL
-    Example</h2>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Add Customer</div>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Medicine Form</title>
+        <link href="<c:url value="/css/register.css"/>" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <a href="<c:url value="/" />"><img src="<c:url value="/images/logo.png"/>" alt="" class="logo"/><a>
+            <nav>
+                <ul class="nav-area">
+                    <li><a href="<c:url value="/"/>">Home</a></li>
+                    <li><a href="<c:url value="/departments" />">Departments</a></li>
+                    <li><a href="<c:url value="/about" />">About</a></li>
+                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                        <li>
+                            <a href="<c:url value="/updateinformation" />">
+                                <c:if test="${currentUser.avatar != null}">
+                                    <img src="${currentUser.avatar}" class="avatar"/>
+                                    
+                                </c:if>
+                                <c:if test="${currentUser.avatar == null}">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </c:if>
+                                ${pageContext.request.userPrincipal.name}
+                                    
+                            </a>
+                        </li>
+                    </c:if>
+                    
+                </ul>
+            </nav>           
+        </header>
+        <div class="main">
+            <div class="register">
+                <h2>Confirm Appoitment</h2>
+                
+                <form:form id="register" method="post" action="savePatient" modelAttribute="patient">
+                    <form:hidden path="id" />
+                    <form:hidden path="id_user" />
+                    <label for="name">Patient's Name : </label>
+                    <br>
+                    <form:input path="name" type="text" name="fname" id="name" placeholder="Enter Medicine Name" />
+                    <br><br>
+                    <label for="chucnang">Email : </label>
+                    <br>
+                    <form:input path="email" type="text" name="lname" id="name" placeholder="Enter Drug Effects" />
+                    <br><br>
+                    <label for="description">Mess : </label>
+                    <br>
+                    <form:input path="mess" type="text" name="email" id="name" placeholder="Enter Description" />
+                    <br><br>     
+                    <label for="description">Lich Kham : </label>
+                    <br>
+                    <form:input path="lichkham" type="text" name="email" id="name" placeholder="Enter Description" />
+                    <br><br>
+                    <input type="submit" value="Confirm Appoitment" name="submit" id="submit" />
+                </form:form>
+                
             </div>
-        <div class="panel-body">
-        <form:form action="savePatient" cssClass="form-horizontal"
-        method="post" modelAttribute="patient">
-
-      <!-- need to associate this data with customer id -->
-        <form:hidden path="id" />
-        <form:hidden path="id_user" />
-
-            <div class="form-group">
-                    <label for="name" class="col-md-3 control-label">Name${Patientid}</label>
-                    <div class="col-md-9">
-                        <form:input path="name" cssClass="form-control" />
-                    </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-md-3 control-label">Email</label>
-                <div class="col-md-9">
-                    <form:input path="email" cssClass="form-control" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="mess" class="col-md-3 control-label">Mess</label>
-                <div class="col-md-9">
-                    <form:input path="mess" cssClass="form-control" />
-                </div>
-            </div>
-                <div class="form-group">
-                    <label for="lichkham" class="col-md-3 control-label">Time</label>
-                    <div class="col-md-9">
-                        <form:input path="lichkham" cssClass="form-control" />
-                    </div>
-            </div>
-            <div class="form-group">
-                <!-- Button -->
-                <div class="col-md-offset-3 col-md-9">
-                    <form:button cssClass="btn btn-primary">Confirm</form:button>
-                </div>
-            </div>
-
-            </form:form>
-                </div>
-            </div>
+            
         </div>
-    </div>
-</body>
+        
+        
+    </body>
 </html>
-
+<c:forEach var="tempCustomer" items="${customers}">
+                        <c:if test="${tempCustomer.userRole == 'ROLE_ADMIN'}">
+                        <form:option value="${tempCustomer.id}">${tempCustomer.firstName}</form:option>
+                        </c:if>>
+                        </c:forEach>
