@@ -138,6 +138,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="informationPatient" template="/WEB-INF/jsp/nurse/informationPatient.jsp">
     </definition>
     <definition name="dkkham" template="/WEB-INF/jsp/dkkham.jsp"></definition>
+    <definition name="addbenhan" template="/WEB-INF/jsp/doctor/addbenhan.jsp"></definition>
     <definition name="apoitment" template="/WEB-INF/jsp/apoitment.jsp">    
     </definition>
     

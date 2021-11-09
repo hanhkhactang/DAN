@@ -62,5 +62,9 @@ public class DoctorServiceImpl implements DoctorService{
     public List<benhan> getbenhan(int id_patient){
     return doctorRepository.getbenhan(id_patient);
     }
+    @Override
+    public void addbenhan(benhan benhan) {
+        doctorRepository.addbenhan(benhan);
+    }
     
 }

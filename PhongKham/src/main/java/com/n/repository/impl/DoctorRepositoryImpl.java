@@ -94,5 +94,11 @@ public class DoctorRepositoryImpl implements DoctorRepository{
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
+    @Override
+    public void addbenhan(benhan benhan) {
+        benhan.setActive(false);
+        Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
+        s.save(benhan);
+    }
     
 }

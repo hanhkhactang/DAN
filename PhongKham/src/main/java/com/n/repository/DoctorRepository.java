@@ -21,5 +21,6 @@ public interface DoctorRepository {
     public UserAccount getCustomer(String username);
     public void deleteCustomer(int id);
     public void updateCustomer(UserAccount customer);
+    public void addbenhan(benhan benhan);
    
 }

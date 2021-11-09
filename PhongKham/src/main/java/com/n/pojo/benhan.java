@@ -16,8 +16,50 @@ import javax.persistence.Table;
  * @author ADMIN
  */
 @Entity
-@Table(name="benhan")
+@Table(name="prescription")
 public class benhan {
+
+    /**
+     * @return the lichuongthuoc
+     */
+    public String getLichuongthuoc() {
+        return lichuongthuoc;
+    }
+
+    /**
+     * @param lichuongthuoc the lichuongthuoc to set
+     */
+    public void setLichuongthuoc(String lichuongthuoc) {
+        this.lichuongthuoc = lichuongthuoc;
+    }
+
+    /**
+     * @return the loikhuyen
+     */
+    public String getLoikhuyen() {
+        return loikhuyen;
+    }
+
+    /**
+     * @param loikhuyen the loikhuyen to set
+     */
+    public void setLoikhuyen(String loikhuyen) {
+        this.loikhuyen = loikhuyen;
+    }
+
+    /**
+     * @return the active
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * @param active the active to set
+     */
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     /**
      * @return the id
@@ -95,4 +137,7 @@ public class benhan {
     private int id_patient;
     private String ngaykham;
     private String chuandoan;
+    private String lichuongthuoc;
+    private String loikhuyen;
+    private boolean active;
 }

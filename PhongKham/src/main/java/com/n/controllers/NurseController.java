@@ -10,6 +10,7 @@ import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
 import com.n.pojo.phanca;
 import com.n.service.AdminService;
+import com.n.service.DoctorService;
 import com.n.service.NurseService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -33,6 +34,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NurseController {
     @Autowired
     private NurseService nurseService;
+    @Autowired
+    private DoctorService doctorService;
     
     @Autowired
     private AdminService adminService;
@@ -88,5 +91,10 @@ public class NurseController {
         UserAccount user = adminService.getCustomer(u.getId());
         theModel.addAttribute("currentUser", user);
         return "phancanurse";
+    }
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("patientId") int id) {
+        doctorService.deleteCustomer(id);
+        return "redirect:/admin/list";
     }
 }

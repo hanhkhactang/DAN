@@ -25,12 +25,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/patient")
 public class patientctroller {
     @Autowired
-    private NurseService nurseService;
+        private NurseService nurseService;
     @GetMapping("/dkkham")
     public String adddkkham(Model model ) {
-    Patient patient = new Patient();
-    model.addAttribute("patient", patient);
-    return "apoitment";
+        Patient patient = new Patient();
+        model.addAttribute("patient", patient);
+        return "apoitment";
     }
     @PostMapping("/addPatient")
     public String adddPatient(@ModelAttribute("patient") Patient patient, HttpSession session) {

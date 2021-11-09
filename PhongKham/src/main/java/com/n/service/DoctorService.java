@@ -27,4 +27,6 @@ public interface DoctorService {
     public void deleteCustomer(int id);
     
     public List<benhan> getbenhan(int id_patient);
+    
+    public void addbenhan(benhan benhan);
 }

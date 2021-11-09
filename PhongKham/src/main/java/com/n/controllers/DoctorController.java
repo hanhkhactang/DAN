@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,6 +47,8 @@ public class DoctorController {
     public void addAttributes(Model model, HttpSession session) {
         UserAccount u =  (UserAccount) session.getAttribute("currentUser");
     }
+    
+    public int idbn;
     
     @RequestMapping("")
     public String adminView(){
@@ -86,6 +89,25 @@ public class DoctorController {
         model.addAttribute("user", user);
         return "benhan";
         
+    }
+    @GetMapping("/addbenhan")
+    public String addbenhan(@RequestParam("patientId") int id,Model model, HttpSession session ) {
+        
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        benhan ba = new benhan();
+        idbn = id;
+        ba.setId_doctor(u.getId());
+        ba.setId_patient(id);
+        model.addAttribute("benhan", ba);
+        return "addbenhan";
+    }
+    @PostMapping("/addbenhan")
+    public String adddPatient(@ModelAttribute("benhan") benhan ba, HttpSession session) {
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        ba.setId_doctor(u.getId());
+        ba.setId_patient(idbn);
+        doctorService.addbenhan(ba);
+        return "redirect:/";
     }
     
     

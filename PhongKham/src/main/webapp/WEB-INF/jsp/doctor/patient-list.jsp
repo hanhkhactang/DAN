@@ -38,8 +38,8 @@
        </c:url>
 
        <!-- construct an "delete" link with customer id --> 
-       <c:url var="deleteLink" value="delete">
-        <c:param name="patientId" value="${tempPatient.id}" />
+       <c:url var="deleteLink" value="addbenhan">
+        <c:param name="patientId" value="${tempPatient.id_user}" />
        </c:url>
        
        <tr>
