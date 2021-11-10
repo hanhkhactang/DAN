@@ -9,6 +9,7 @@ import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
 import com.n.pojo.benhan;
 import com.n.pojo.phanca;
+import com.n.pojo.tam;
 import com.n.service.AdminService;
 import com.n.service.DoctorService;
 import com.n.service.MedicineService;
@@ -87,6 +88,9 @@ public class DoctorController {
         model.addAttribute("benhan", benhan);
         List < UserAccount > user = adminService.getCustomers();
         model.addAttribute("user", user);
+        tam tam = new tam();
+        model.addAttribute("tam", tam);
+        tam.setTam(id);
         return "benhan";
         
     }

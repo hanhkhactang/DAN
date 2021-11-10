@@ -26,6 +26,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserAccount implements Serializable {
 
     /**
+
+
+ 
+    
+    
+    /**
      * @return the avatar
      */
     public String getAvatar() {

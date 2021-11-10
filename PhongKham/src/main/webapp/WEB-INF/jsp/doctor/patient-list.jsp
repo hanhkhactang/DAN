@@ -34,7 +34,7 @@
 
        <!-- construct an "update" link with customer id -->
        <c:url var="confirmLink" value="benhan">
-            <c:param name="patientId" value="${tempPatient.id}" />
+            <c:param name="patientId" value="${tempPatient.id_user}" />
        </c:url>
 
        <!-- construct an "delete" link with customer id --> 

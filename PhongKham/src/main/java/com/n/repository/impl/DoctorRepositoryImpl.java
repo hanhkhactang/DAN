@@ -7,6 +7,7 @@ package com.n.repository.impl;
 
 import com.n.pojo.UserAccount;
 import com.n.pojo.benhan;
+import com.n.pojo.prescriptiondetail;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -99,6 +100,16 @@ public class DoctorRepositoryImpl implements DoctorRepository{
         benhan.setActive(false);
         Session s = this.localSessionFactoryBean.getObject().getCurrentSession();
         s.save(benhan);
+    }
+    @Override
+    public List<prescriptiondetail> getprescriptiondetail(){
+        Session session = sessionFactory.getCurrentSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery < prescriptiondetail > cq = cb.createQuery(prescriptiondetail.class);
+        Root < prescriptiondetail > root = cq.from(prescriptiondetail.class);
+        cq.select(root);
+        Query query = session.createQuery(cq);
+        return query.getResultList();
     }
     
 }

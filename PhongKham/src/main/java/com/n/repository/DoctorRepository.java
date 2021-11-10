@@ -7,6 +7,7 @@ package com.n.repository;
 
 import com.n.pojo.UserAccount;
 import com.n.pojo.benhan;
+import com.n.pojo.prescriptiondetail;
 import java.util.List;
 
 /**
@@ -22,5 +23,6 @@ public interface DoctorRepository {
     public void deleteCustomer(int id);
     public void updateCustomer(UserAccount customer);
     public void addbenhan(benhan benhan);
+    public List<prescriptiondetail> getprescriptiondetail();
    
 }
