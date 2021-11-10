@@ -5,14 +5,10 @@
  */
 package com.n.controllers;
 
-import com.n.pojo.Cart;
 import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
-import com.n.service.CategoryService;
 import com.n.service.NurseService;
 import com.n.service.PatientService;
-import com.n.service.ProductService;
-import com.n.utils.Utils;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,32 +28,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @ControllerAdvice
 public class HomeController {
-    @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private ProductService productService;
+
     @Autowired
     private NurseService nurseService;
     @ModelAttribute
     public void addAttributes(Model model, HttpSession session) {
-        model.addAttribute("categories", this.categoryService.getCategories());
-        model.addAttribute("cartStats", Utils.getCartStats((Map<Integer, Cart>) session.getAttribute("cart")));
         model.addAttribute("currentUser", session.getAttribute("currentUser"));
     }
     
     
     @RequestMapping("/")
-    public String index(Model model, 
-            @RequestParam(name = "cateId", required = false) String cateId,
-            @RequestParam(name = "kw", required = false, defaultValue = "") String kw,
-            HttpSession session) {
-        
-        if (cateId == null)
-            model.addAttribute("products", this.productService.getProducts(kw));
-        else
-            model.addAttribute("products", 
-                    this.categoryService.getCateById(Integer.parseInt(cateId)).getProducts());
-        model.addAttribute("currentUser",session.getAttribute("currentUser"));
+    public String index() {
+       
         return "index";
     }
     

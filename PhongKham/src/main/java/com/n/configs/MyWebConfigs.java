@@ -8,7 +8,6 @@ package com.n.configs;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.n.email.MyConstants;
-import com.n.formatter.CategoryFormatter;
 import com.n.validator.UserPassValidator;
 import com.n.validator.WebAppValidator;
 import java.util.HashSet;
@@ -81,10 +80,6 @@ public class MyWebConfigs implements WebMvcConfigurer {
         return validator();
     }
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new CategoryFormatter());
-    }
     
     @Bean
     public WebAppValidator userValidator() {
