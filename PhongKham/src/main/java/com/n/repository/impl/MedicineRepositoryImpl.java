@@ -11,6 +11,7 @@ import com.n.repository.MedicineRepository;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -60,6 +61,25 @@ public class MedicineRepositoryImpl implements MedicineRepository{
         Session session = sessionFactory.getCurrentSession();
         Medicine book = session.byId(Medicine.class).load(id);
         session.delete(book);
+    }
+
+    @Override
+    public List<Medicine> getMedicine(String kw) {
+        Session session = sessionFactory.getCurrentSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery < Medicine > cq = cb.createQuery(Medicine.class);
+        Root root = cq.from(Medicine.class);
+        cq = cq.select(root);
+        
+        if(kw != null){
+            Predicate p = cb.like(root.get("name").as(String.class), 
+                    String.format("%%%s%%", kw));
+            cq = cq.where(p);            
+        }
+        
+        Query q = session.createQuery(cq);
+        
+        return q.getResultList();  
     }
     
 }

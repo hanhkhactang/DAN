@@ -38,8 +38,18 @@
                         <c:if test="${currentUser.avatar == null}">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </c:if>
-                        ${pageContext.request.userPrincipal.name}</a>
+                        ${pageContext.request.userPrincipal.name}
+                    </a>
                 </li>
+                
+                
+                    <li class="nav-item">
+                        <a href="<c:url value="/doctor/chitiet"/>">
+                            <div class="badge badge-danger" id="thuocCounter">0</div>
+                        </a>
+                    </li>
+                
+               
                 <li class="nav-item">
                     <a href="<c:url value="/logout" />" class="nav-link">Logout</a>
                 </li>  
@@ -50,10 +60,10 @@
 
             </ul>
             <div class="ml-auto">
-              <form action="#" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
+                <form action="<c:url value="/doctor/kedon/"/>" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
                 <div class="form-group">
-                  <button class="icon submit"><span class="fa fa-search"></span></button>
-                  <input type="text" class="form-control" placeholder="Search">
+                  <button type="submit" class="icon submit"><span class="fa fa-search"></span></button>
+                  <input type="text" name="kw" class="form-control" placeholder="Search">
                 </div>
               </form>
             </div>

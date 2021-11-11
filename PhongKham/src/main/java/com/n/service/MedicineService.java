@@ -21,4 +21,6 @@ public interface MedicineService {
 
     public void deleteMedicine(int id);
     
+    public List <Medicine> getMedicine(String kw);
+    
 }

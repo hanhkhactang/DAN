@@ -17,5 +17,6 @@ public interface MedicineRepository {
     public void saveMedicine(Medicine medicine);
     public Medicine getMedicine(int id);
     public void deleteMedicine(int id);
+    public List<Medicine> getMedicine(String kw);
     
 }

@@ -38,7 +38,7 @@
         <link rel="stylesheet" href="<c:url value="/css/animate.css"/>">
         <link rel="stylesheet" href="<c:url value="/css/bootstrap-datepicker.css"/>">
         <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
-        
+        <script src="<c:url value="/js/main1.js"/>"></script>
     </head>
     <body>
        
