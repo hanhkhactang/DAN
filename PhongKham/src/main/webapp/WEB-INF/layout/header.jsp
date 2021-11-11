@@ -42,13 +42,7 @@
                     </a>
                 </li>
                 
-                
-                    <li class="nav-item">
-                        <a href="<c:url value="/doctor/chitiet"/>">
-                            <div class="badge badge-danger" id="thuocCounter">0</div>
-                        </a>
-                    </li>
-                
+               
                
                 <li class="nav-item">
                     <a href="<c:url value="/logout" />" class="nav-link">Logout</a>
@@ -60,7 +54,7 @@
 
             </ul>
             <div class="ml-auto">
-                <form action="<c:url value="/doctor/kedon/"/>" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
+                <form action="<c:url value="/doctor/dt/"/>" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
                 <div class="form-group">
                   <button type="submit" class="icon submit"><span class="fa fa-search"></span></button>
                   <input type="text" name="kw" class="form-control" placeholder="Search">

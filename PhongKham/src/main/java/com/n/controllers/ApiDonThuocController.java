@@ -10,8 +10,13 @@ import com.n.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -39,7 +44,39 @@ public class ApiDonThuocController {
         session.setAttribute("dt", dt);
         
         return Utils.countDt(dt);
+            
+    }
+    
+    @PutMapping("/doctor/api/dt")  
+    public int updateDt(@RequestBody DonThuoc params, HttpSession session){
+        Map<Integer, DonThuoc> dt = (Map<Integer, DonThuoc>) session.getAttribute("dt");
         
+        if(dt == null)
+            dt = new HashMap<>();
+        
+        int medicineId = params.getMedicineId();
+        
+        if(dt.containsKey(medicineId) == true){
+            DonThuoc d = dt.get(medicineId);    
+            d.setQuantity(params.getQuantity());
+        }
+        
+        session.setAttribute("dt", dt);
+        
+        return Utils.countDt(dt);
+    }
+    
+    @DeleteMapping("/doctor/api/{medicineId}")
+    public int deleteDtItem(@PathVariable(value = "medicineId") int medicineId,
+            HttpSession session){
+        Map<Integer, DonThuoc> dt = (Map<Integer, DonThuoc>) session.getAttribute("dt");
+        if(dt != null && dt.containsKey(medicineId)){    
+            dt.remove(medicineId);
+            
+            session.setAttribute("dt", dt);
+        }
+        
+        return Utils.countDt(dt);
     }
     
 }

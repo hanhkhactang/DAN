@@ -11,7 +11,7 @@
     <h4 class="text-center text-primary">Chua co thuoc nao duoc ghi nhan</h4>
 </c:if>
 <c:if test="${dts != null}"> 
-    <table>
+    <table class="table">
         <tr>
             <th>Ma Thuoc</th>
             <th>Ten Thuoc</th>
@@ -19,20 +19,25 @@
             <th></th>
         </tr>
         <c:forEach items="${dts}" var="c">
-        <tr>
+        <tr id="medicine${c.medicineId}">
             <td>${c.medicineId}</td>
             <td>${c.medicineName}</td>
             <td>
                 <div class="form-group">
-                    <input type="number" value="${c.quantity}" class="form-control" />
+                    <input type="number" onblur="updateDt(this, ${c.medicineId})" value="${c.quantity}" />
                 </div>
             </td>
             <td>
-                <input type="button" value="xoa" class="btn btn-primary" />
+                <input type="button" 
+                       onclick="deleteDt(${c.medicineId})" 
+                       value="Xóa" 
+                       class="btn btn-primary" />
             </td>
         </tr>
         </c:forEach>
     </table>
-    
-    <input type="button" value="Xac Nhan" class="btn btn-primary"/>
+    <input type="button" value="Xác nhận" class="btn btn-primary"/>
+    <br>
+    <br>
 </c:if>
+    
