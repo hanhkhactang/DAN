@@ -7,6 +7,7 @@ package com.n.service;
 
 import com.n.pojo.UserAccount;
 import com.n.pojo.benhan;
+import com.n.pojo.prescriptiondetail;
 import java.util.List;
 
 /**
@@ -26,7 +27,13 @@ public interface DoctorService {
 
     public void deleteCustomer(int id);
     
-    public List<benhan> getbenhan(int id_patient);
+    public List<benhan> getbenhan();
     
     public void addbenhan(benhan benhan);
+    
+    public benhan getbenhan(int id);
+    
+    public void editbenhan(benhan benhan);
+    
+    public List<prescriptiondetail> getprescriptiondetail();
 }

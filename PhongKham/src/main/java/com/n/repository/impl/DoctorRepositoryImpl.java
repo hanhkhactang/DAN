@@ -86,7 +86,7 @@ public class DoctorRepositoryImpl implements DoctorRepository{
         s.saveOrUpdate(customer);
     }
     @Override
-    public List<benhan> getbenhan(int id_patient){
+    public List<benhan> getbenhan(){
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery < benhan > cq = cb.createQuery(benhan.class);
@@ -111,5 +111,17 @@ public class DoctorRepositoryImpl implements DoctorRepository{
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
+    @Override
+    public benhan getbenhan(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        benhan benhan = currentSession.get(benhan.class, id);
+        return benhan;
+    }
+    @Override
+    public void editbenhan(benhan benhan) {
+        Session s = this.sessionFactory.getCurrentSession();
+        s.update(benhan);
+    }
+    
     
 }

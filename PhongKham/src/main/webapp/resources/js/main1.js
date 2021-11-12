@@ -1,10 +1,11 @@
-function addToDonThuoc(id, name){
+function addToDonThuoc(id, name,iddt){
     event.preventDefault()
     fetch ("/PhongKham/doctor/api/dt", {
         method: 'post',
         body: JSON.stringify({
             "medicineId":id,
             "medicineName": name,
+            "orderid": iddt,
             "quantity": 1
         }),
         headers:{

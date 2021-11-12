@@ -9,11 +9,14 @@ import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
 import com.n.pojo.benhan;
 import com.n.pojo.phanca;
+import com.n.pojo.Medicine;
+import com.n.pojo.prescriptiondetail;
 import com.n.pojo.tam;
 import com.n.service.AdminService;
 import com.n.service.DoctorService;
 import com.n.service.MedicineService;
 import com.n.service.NurseService;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -80,11 +83,11 @@ public class DoctorController {
         
         return "patient-list";
     }
-    
+    public  int dt;
     @GetMapping("/benhan")
     public String showFormPatient(@RequestParam("patientId") int id,
             Model model) {
-        List < benhan > benhan= doctorService.getbenhan(id);
+        List < benhan > benhan= doctorService.getbenhan();
         
         model.addAttribute("benhan", benhan);
         List < UserAccount > user = adminService.getCustomers();
@@ -92,6 +95,7 @@ public class DoctorController {
         tam tam = new tam();
         model.addAttribute("tam", tam);
         tam.setTam(id);
+        dt = id;
         return "benhan";
         
     }
@@ -111,17 +115,38 @@ public class DoctorController {
         UserAccount u =  (UserAccount) session.getAttribute("currentUser");
         ba.setId_doctor(u.getId());
         ba.setId_patient(idbn);
+        ba.setNgaykham(new Date());
         doctorService.addbenhan(ba);
         return "redirect:/";
     }
     
     @GetMapping("/dt")
-    public String keDon(Model model, @RequestParam(required = false) Map<String, String> params){
+    public String keDon(Model model, @RequestParam("benhanid") int id ,Map<String, String> params){
         String kw = params.getOrDefault("kw", null);
-        
+        benhan benhan = doctorService.getbenhan(id);
+        model.addAttribute("benhan", benhan);
         model.addAttribute("medicines", this.medicineService.getMedicine(kw));
-        
+        List < UserAccount > user = adminService.getCustomers();
+        model.addAttribute("user", user);
         return "kedon";
+    }
+    @GetMapping("/chitietbenhan")
+    public String chitietbenhan(@RequestParam("benhanid") int id,
+            Model model) {
+        List < benhan > benhan= doctorService.getbenhan();
+        model.addAttribute("benhan", benhan);
+        List < prescriptiondetail > prescriptiondetail= doctorService.getprescriptiondetail();
+        model.addAttribute("detail", prescriptiondetail);
+        List < UserAccount > user = adminService.getCustomers();
+        model.addAttribute("user", user);
+        List < Medicine > medicine = medicineService.getMedicine();
+        model.addAttribute("medicine", medicine);
+        tam tam = new tam();
+        model.addAttribute("tam", tam);
+        tam.setTam(id);
+        dt = id;
+        return "chitietbenhan";
+        
     }
     
     

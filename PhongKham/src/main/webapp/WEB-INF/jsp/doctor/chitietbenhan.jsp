@@ -26,12 +26,11 @@
        <th>Ten benh Nhan</th>
        <th>Ngay Kham</th>
        <th>chuan Doan</th>
-       <th>Tinh trang</th>
       </tr>
 
       <!-- loop over and print our customers -->
       <c:forEach var="benhan" items="${benhan}">
-          <c:if test="${tam.tam == benhan.id_patient}">
+          <c:if test="${tam.tam == benhan.id}">
 
        <!-- construct an "update" link with customer id -->
        <c:url var="confirmLink" value="chitietbenhan">
@@ -65,13 +64,37 @@
          ${benhan.chuandoan}
         </td>
 
-        
-         <c:if test="${benhan.active == false}">
-            <td><a href="${updateLink}">Them</a></td>
-         </c:if>
-           <c:if test="${benhan.active == true}">
-            <td><a href="${confirmLink}">Xem chi ti?t</a></td>
-         </c:if>
+       </tr>
+
+       </c:if>
+      </c:forEach>
+
+     </table>
+
+    </div>
+           <div class="panel-body">
+     <table class="table table-striped table-bordered">
+      <tr>
+       <th>Ten thuoc</th>
+       <th>so luong</th>
+      </tr>
+
+      <!-- loop over and print our customers -->
+      <c:forEach var="detail" items="${detail}">
+          <c:if test="${tam.tam == detail.idbenhan}">
+
+       <!-- construct an "update" link with customer id -->
+       
+       <tr>
+           <c:forEach var="medicine" items="${medicine}">
+                <c:if test="${medicine.id == detail.idmedicine}">
+            <td>${medicine.name}</td>
+                </c:if>
+            </c:forEach>
+            
+                
+            <td>${detail.soluong}</td>
+
        </tr>
 
        </c:if>

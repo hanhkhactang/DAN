@@ -12,6 +12,20 @@ package com.n.pojo;
 public class DonThuoc {
 
     /**
+     * @return the orderid
+     */
+    public int getOrderid() {
+        return orderid;
+    }
+
+    /**
+     * @param orderid the orderid to set
+     */
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
+    }
+
+    /**
      * @return the medicineId
      */
     public int getMedicineId() {
@@ -55,4 +69,5 @@ public class DonThuoc {
     private int medicineId;
     private String medicineName;
     private int quantity;
+    private int orderid;
 }

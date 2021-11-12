@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Neet Nguyen
  */
+
 @RestController
 public class ApiDonThuocController {
     @Autowired
@@ -36,7 +37,7 @@ public class ApiDonThuocController {
         
         if(dt == null)
             dt = new HashMap<>();
-        
+    
         int medicineId = params.getMedicineId();
         
         if(dt.containsKey(medicineId) == true){

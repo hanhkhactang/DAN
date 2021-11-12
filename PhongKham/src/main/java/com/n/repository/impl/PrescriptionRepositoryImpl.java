@@ -8,10 +8,13 @@ package com.n.repository.impl;
 import com.n.pojo.DonThuoc;
 import com.n.pojo.Prescription;
 import com.n.pojo.benhan;
+import com.n.pojo.tam;
 import com.n.pojo.prescriptiondetail;
+import com.n.service.DoctorService;
 import com.n.repository.MedicineRepository;
 import com.n.repository.PrescriptionRepository;
 import com.n.repository.UserRepository;
+import com.n.repository.DoctorRepository;
 import java.util.Map;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -33,6 +36,8 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository{
     private LocalSessionFactoryBean sessionFactory;
     @Autowired
     private MedicineRepository medicineRepository;
+    @Autowired
+    private DoctorService doctorService;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
@@ -42,16 +47,19 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository{
             benhan pres = new benhan();
             pres.setId_doctor(18);
             session.save(pres);
-
+            
             for(DonThuoc d: dt.values()){
                 prescriptiondetail pred = new prescriptiondetail();
-                pred.setIdbenhan(1);
-                pred.setIdmedicine(1);
+                pred.setIdbenhan(d.getOrderid());
+                pred.setIdmedicine(d.getMedicineId());
                 pred.setSoluong(d.getQuantity());
-            
                 session.save(pred);
+                benhan benhan = doctorService.getbenhan(d.getOrderid());
+                benhan.setActive(true);
+                doctorService.editbenhan(benhan);
 
             }
+           
             return true;
             
         }catch(HibernateException ex){

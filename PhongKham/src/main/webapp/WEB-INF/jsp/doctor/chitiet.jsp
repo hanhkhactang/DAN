@@ -15,6 +15,7 @@
         <tr>
             <th>Ma Thuoc</th>
             <th>Ten Thuoc</th>
+            <th>Ten Thuoc</th>
             <th>So Luong</th>
             <th></th>
         </tr>
@@ -22,6 +23,7 @@
         <tr id="medicine${c.medicineId}">
             <td>${c.medicineId}</td>
             <td>${c.medicineName}</td>
+            <td>${c.orderid}</td>
             <td>
                 <div class="form-group">
                     <input type="number" onblur="updateDt(this, ${c.medicineId})" value="${c.quantity}" />

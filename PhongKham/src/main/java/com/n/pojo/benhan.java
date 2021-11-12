@@ -5,11 +5,13 @@
  */
 package com.n.pojo;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -18,6 +20,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name="prescription")
 public class benhan {
+
+    /**
+     * @return the ngaykham
+     */
+    public Date getNgaykham() {
+        return ngaykham;
+    }
+
+    /**
+     * @param ngaykham the ngaykham to set
+     */
+    public void setNgaykham(Date ngaykham) {
+        this.ngaykham = ngaykham;
+    }
+
+    /**
+     * @return the active
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * @param active the active to set
+     */
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     /**
      * @return the lichuongthuoc
@@ -50,16 +80,7 @@ public class benhan {
     /**
      * @return the active
      */
-    public boolean isActive() {
-        return active;
-    }
-
-    /**
-     * @param active the active to set
-     */
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+    
 
     /**
      * @return the id
@@ -103,23 +124,7 @@ public class benhan {
         this.id_patient = id_patient;
     }
 
-    /**
-     * @return the ngaykham
-     */
-    public String getNgaykham() {
-        return ngaykham;
-    }
-
-    /**
-     * @param ngaykham the ngaykham to set
-     */
-    public void setNgaykham(String ngaykham) {
-        this.ngaykham = ngaykham;
-    }
-
-    /**
-     * @return the chuandoan
-     */
+    
     public String getChuandoan() {
         return chuandoan;
     }
@@ -135,7 +140,8 @@ public class benhan {
     private int id;
     private int id_doctor;
     private int id_patient;
-    private String ngaykham;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date ngaykham;
     private String chuandoan;
     private String lichuongthuoc;
     private String loikhuyen;
