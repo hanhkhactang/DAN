@@ -36,7 +36,7 @@
         </tr>
         </c:forEach>
     </table>
-    <input type="button" value="Xác nhận" class="btn btn-primary"/>
+    <input type="button" onclick="xacNhan()" value="Xác nhận" class="btn btn-primary"/>
     <br>
     <br>
 </c:if>

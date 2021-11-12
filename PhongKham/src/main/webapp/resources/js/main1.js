@@ -52,3 +52,16 @@ function deleteDt(medicineId){
         })
     }
 }
+
+function xacNhan(){
+    if(confirm("Ban xac nhan don thuoc nay") == true){
+        fetch("PhongKham/doctor/api/confirm", {
+            method:"post"
+        }).then(function(res){
+            return res.json();
+        }).then(function(code){
+            console.info(code);
+            location.reload()
+        })
+    }
+}

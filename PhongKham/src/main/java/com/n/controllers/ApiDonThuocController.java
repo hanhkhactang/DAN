@@ -6,10 +6,12 @@
 package com.n.controllers;
 
 import com.n.pojo.DonThuoc;
+import com.n.service.PrescriptionService;
 import com.n.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ApiDonThuocController {
+    @Autowired
+    private PrescriptionService prescriptionService;
+    
     @PostMapping("/doctor/api/dt")
     public int addToDonThuoc(@RequestBody DonThuoc params, HttpSession session){
         Map<Integer, DonThuoc> dt = (Map<Integer, DonThuoc>) session.getAttribute("dt");
@@ -77,6 +82,19 @@ public class ApiDonThuocController {
         }
         
         return Utils.countDt(dt);
+    }
+    
+    @PostMapping("/doctor/api/confirm")
+    public HttpStatus confirm(HttpSession session){
+        if(this.prescriptionService.addReceipt((Map<Integer, DonThuoc>) session.getAttribute("dt"))){
+            session.removeAttribute("dt");
+            return HttpStatus.OK;
+        }
+            
+        
+        return HttpStatus.BAD_REQUEST;
+        
+    
     }
     
 }
