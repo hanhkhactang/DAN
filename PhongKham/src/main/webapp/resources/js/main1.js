@@ -45,17 +45,18 @@ function deleteDt(medicineId){
             return res.json()
         }).then(function(data){
             let counter = document.getElementById("thuocCounter")
-            counter.innerText = data
-    //        location.reload()
+            
+            location.reload()
             let row = document.getElementById(`medicine${medicineId}`)
             row.style.display = "none"
+            counter.innerText = data
         })
     }
 }
 
 function xacNhan(){
     if(confirm("Ban xac nhan don thuoc nay") == true){
-        fetch("PhongKham/doctor/api/confirm", {
+        fetch("/PhongKham/doctor/api/confirm", {
             method:"post"
         }).then(function(res){
             return res.json();

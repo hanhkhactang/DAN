@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @author caoth
  */
 @Entity
-@Table(name="prescription details")
+@Table(name="prescriptiondetails")
 public class prescriptiondetail {
 
     /**

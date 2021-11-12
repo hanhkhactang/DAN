@@ -26,7 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Neet Nguyen
  */
 @Repository
-@Transactional(propagation = Propagation.REQUIRED)
 public class PrescriptionRepositoryImpl implements PrescriptionRepository{
     @Autowired
     private UserRepository userRepository;
@@ -36,13 +35,12 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository{
     private MedicineRepository medicineRepository;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public boolean addReceipt(Map<Integer, DonThuoc> dt) {
         try{
             Session session = this.sessionFactory.getObject().getCurrentSession();
             benhan pres = new benhan();
             pres.setId_doctor(18);
-            pres.setNgaykham("12/11/2021");
-
             session.save(pres);
 
             for(DonThuoc d: dt.values()){
@@ -51,7 +49,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository{
                 pred.setIdmedicine(1);
                 pred.setSoluong(d.getQuantity());
             
-                session.save(d);
+                session.save(pred);
 
             }
             return true;
