@@ -22,6 +22,20 @@ import javax.persistence.Temporal;
 public class benhan {
 
     /**
+     * @return the xacnhanyta
+     */
+    public boolean isXacnhanyta() {
+        return xacnhanyta;
+    }
+
+    /**
+     * @param xacnhanyta the xacnhanyta to set
+     */
+    public void setXacnhanyta(boolean xacnhanyta) {
+        this.xacnhanyta = xacnhanyta;
+    }
+
+    /**
      * @return the ngaykham
      */
     public Date getNgaykham() {
@@ -146,4 +160,5 @@ public class benhan {
     private String lichuongthuoc;
     private String loikhuyen;
     private boolean active;
+    private boolean xacnhanyta;
 }

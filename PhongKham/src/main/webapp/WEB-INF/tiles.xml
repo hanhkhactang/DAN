@@ -134,8 +134,20 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="header" value="/WEB-INF/jsp/nurse/nurseView.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/doctor/benhan.jsp"/>
     </definition>
+    <definition name="benhannurse" extends="baseLayout">  
+        <put-attribute name="title" value="Benhan"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/nurse/nurseView.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/benhan.jsp"/>
+    </definition>
     <definition name="chitietbenhan" extends="baseLayout">  
         <put-attribute name="content" value="/WEB-INF/jsp/doctor/chitietbenhan.jsp"/>
+    </definition>
+    <definition name="toathuoc" extends="baseLayout">  
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/toathuoc.jsp"/>
+    </definition>
+    
+    <definition name="benhanbenhnhan" extends="baseLayout">  
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/benhanbenhnhan.jsp"/>
     </definition>
     
     <definition name="informationPatient" template="/WEB-INF/jsp/nurse/informationPatient.jsp">

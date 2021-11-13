@@ -8,10 +8,14 @@ package com.n.controllers;
 import com.n.pojo.Medicine;
 import com.n.pojo.Patient;
 import com.n.pojo.UserAccount;
+import com.n.pojo.benhan;
 import com.n.pojo.phanca;
+import com.n.pojo.prescriptiondetail;
+import com.n.pojo.tam;
 import com.n.service.AdminService;
 import com.n.service.DoctorService;
 import com.n.service.NurseService;
+import com.n.service.MedicineService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +40,9 @@ public class NurseController {
     private NurseService nurseService;
     @Autowired
     private DoctorService doctorService;
+    
+    @Autowired
+    private MedicineService medicineService;
     
     @Autowired
     private AdminService adminService;
@@ -96,5 +103,41 @@ public class NurseController {
     public String deleteCustomer(@RequestParam("patientId") int id) {
         doctorService.deleteCustomer(id);
         return "redirect:/admin/list";
+    }
+    @GetMapping("/benhan")
+    public String benhan(
+            Model model) {
+        List < benhan > benhan= doctorService.getbenhan();
+        model.addAttribute("benhan", benhan);
+        List < UserAccount > user = adminService.getCustomers();
+        model.addAttribute("user", user);
+        return "benhannurse";
+        
+    }
+    public int idbn;
+    @GetMapping("/benhanbenhnhan")
+    public String chitietbenhan(@RequestParam("benhanid") int id,
+            Model model) {
+        List < benhan > benhan= doctorService.getbenhan();
+        model.addAttribute("benhan", benhan);
+        List < prescriptiondetail > prescriptiondetail= doctorService.getprescriptiondetail();
+        model.addAttribute("detail", prescriptiondetail);
+        List < UserAccount > user = adminService.getCustomers();
+        model.addAttribute("user", user);
+        List < Medicine > medicine = medicineService.getMedicine();
+        model.addAttribute("medicine", medicine);
+        tam tam = new tam();
+        model.addAttribute("tam", tam);
+        tam.setTam(id);
+        idbn=id;
+        return "benhanbenhnhan";
+    }
+    @GetMapping("/xacnhan")
+    public String benhanbenhnhan( HttpSession session) {
+        benhan b = new benhan();
+        b = doctorService.getbenhan(idbn);
+        b.setXacnhanyta(true);
+        doctorService.editbenhan(b);
+        return "redirect:/nurse/benhan";
     }
 }
