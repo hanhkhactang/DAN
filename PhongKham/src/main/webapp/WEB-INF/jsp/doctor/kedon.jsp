@@ -24,3 +24,6 @@
         </c:forEach>
     </div>  
 </div>
+<br>
+<a class="btn btn-primary" href="<c:url value="/doctor/chitiet" />">Chi tiết</a>
+<br><br>

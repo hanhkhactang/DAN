@@ -18,7 +18,7 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active"><a href="<c:url value="/"/>" class="nav-link pl-0">Home</a></li>
               <li class="nav-item"><a href="<c:url value="/nurse/list-patient" />" class="nav-link">Pantient</a></li>
-              <li class="nav-item"><a href="<c:url value="/admin/listMedicine" />" class="nav-link">Medicine</a></li>
+              <li class="nav-item"><a href="<c:url value="/nurse/benhan" />" class="nav-link">Đơn thuốc</a></li>
               <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item"><a href="<c:url value="/login" />" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>

@@ -20,9 +20,7 @@
             <nav>
                 <ul class="nav-area">
                     <li><a href="<c:url value="/"/>">Home</a></li>
-                    <li><a href="<c:url value="/departments" />">Departments</a></li>
-                    <li><a href="<c:url value="/about" />">About</a></li>
-                    <li><a href="<c:url value="/contact" />">Contact</a></li>
+                    <li><a href="<c:url value="/doctor/patient-list" />">Patient</a></li>
                     <c:if test="${pageContext.request.userPrincipal.name != null}">
                         <li>
                             <a href="<c:url value="/updateinformation" />">
@@ -45,25 +43,25 @@
         
         <div class="main">
             <div class="register">
-                <h2>Book Appointment Here</h2>
+                <h2>Thêm bệnh án</h2>
                 
                 <form:form id="register" method="post" action="addbenhan" modelAttribute="benhan"> 
                     
                     
                     <br><br>
-                    <label for="mess">Chuon doan : </label>
+                    <label for="mess">Chuẩn đoán : </label>
                     <br>
                     <form:input path="chuandoan" type="text" name="chuandoan" id="name" placeholder="Chuandoan" />
                     <br><br>
-                    <label for="mess">Lich uong thuoc : </label>
+                    <label for="mess">Lịch uống thuốc : </label>
                     <br>
                     <form:input path="lichuongthuoc" type="text" name="lichuongthuoc" id="name" placeholder="Lich uong thuoc" />
                     <br><br>
-                    <label for="mess">Loi khuyen : </label>
+                    <label for="mess">Lời nhắc : </label>
                     <br>
                     <form:input path="loikhuyen" type="text" name="loikhuyen" id="name" placeholder="Loi khuyen" />
                     <br><br>
-                    <input type="submit" value="Take appointment" name="submit" id="submit" />
+                    <input type="submit" value="Xác nhận" name="submit" id="submit" />
                 </form:form>
                 
             </div>

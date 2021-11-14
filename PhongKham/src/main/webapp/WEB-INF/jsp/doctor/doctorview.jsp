@@ -16,10 +16,7 @@
           <div class="collapse navbar-collapse" id="probootstrap-nav">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active"><a href="<c:url value="/"/>" class="nav-link pl-0">Home</a></li>
-              <li class="nav-item"><a href="<c:url value="/doctor/list" />" class="nav-link">Pantient</a></li>
-              <li class="nav-item"><a href="<c:url value="/about" />" class="nav-link">about</a></li>
-              <li class="nav-item"><a href="<c:url value="/contact" />" class="nav-link">contact</a></li>
-             
+              <li class="nav-item"><a href="<c:url value="/doctor/patient-list" />" class="nav-link">Pantient</a></li>          
               <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item"><a href="<c:url value="/login" />" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="<c:url value="/register" />" class="nav-link">Dang ky</a></li>

@@ -13,10 +13,10 @@
 <c:if test="${dts != null}"> 
     <table class="table">
         <tr>
-            <th>Ma Thuoc</th>
-            <th>Ten Thuoc</th>
-            <th>Ten Thuoc</th>
-            <th>So Luong</th>
+            <th>Mã thuốc</th>
+            <th>Tên thuốc</th>
+            <th>Mã bệnh nhân</th>
+            <th>Số lượng</th>
             <th></th>
         </tr>
         <c:forEach items="${dts}" var="c">
