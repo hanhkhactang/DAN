@@ -117,7 +117,7 @@ public class DoctorController {
         ba.setId_patient(idbn);
         ba.setNgaykham(new Date());
         doctorService.addbenhan(ba);
-        return "redirect:doctorView";
+        return "redirect:/doctor/patient-list";
     }
     
     @GetMapping("/dt")

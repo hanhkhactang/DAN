@@ -10,16 +10,13 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>CRM - Customer Relationship Manager</h2>
-   <hr />
+   
 
-   <input type="button" value="Add Customer"
-    onclick="window.location.href='showForm'; return false;"
-    class="btn btn-primary" />
+   
     <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
-     <div class="panel-title">Customer List</div>
+     <div class="panel-title">Danh sách phân ca</div>
     </div>
     <div class="panel-body">
      <table class="table table-striped table-bordered">
@@ -27,7 +24,7 @@
        <th>Thu</th>
        <th>Doctor</th>
        <th>Nurse</th>
-       <th>Action</th>
+       <th>Phân ca</th>
       </tr>
 
       <!-- loop over and print our customers -->

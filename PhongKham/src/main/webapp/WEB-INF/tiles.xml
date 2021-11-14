@@ -76,7 +76,11 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="editEmployee" template="/WEB-INF/jsp/administrator/editEmployee.jsp"></definition>
     <definition name="editphanca" template="/WEB-INF/jsp/administrator/editphanca.jsp"></definition>
     
-    <definition name="phanca" template="/WEB-INF/jsp/administrator/phanca.jsp"></definition>
+    <definition name="phanca" extends="baseLayout">
+        <put-attribute name="title" value="Phan ca" />
+        <put-attribute name="header" value="/WEB-INF/jsp/administrator/adminView.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/administrator/phanca.jsp" />
+    </definition>
     <definition name="phancadoctor" template="/WEB-INF/jsp/doctor/phanca.jsp"></definition>
     <definition name="phancanurse" template="/WEB-INF/jsp/nurse/phanca.jsp"></definition>
     

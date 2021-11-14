@@ -10,8 +10,6 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>CRM - Customer Relationship Manager</h2>
-   <hr />
 
    <input type="button" value="Add Customer"
     onclick="window.location.href='showForm'; return false;"

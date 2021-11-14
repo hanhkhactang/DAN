@@ -44,10 +44,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository{
     public boolean addReceipt(Map<Integer, DonThuoc> dt) {
         try{
             Session session = this.sessionFactory.getObject().getCurrentSession();
-            benhan pres = new benhan();
-            pres.setId_doctor(18);
-            session.save(pres);
-            
+ 
             for(DonThuoc d: dt.values()){
                 prescriptiondetail pred = new prescriptiondetail();
                 pred.setIdbenhan(d.getOrderid());
