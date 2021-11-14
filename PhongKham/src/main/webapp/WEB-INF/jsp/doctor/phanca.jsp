@@ -11,19 +11,17 @@
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
 
-   <input type="button" value="Add Customer"
-    onclick="window.location.href='showForm'; return false;"
-    class="btn btn-primary" />
+   
     <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
-     <div class="panel-title">Customer List</div>
+     <div class="panel-title">Lich truc</div>
     </div>
     <div class="panel-body">
      <table class="table table-striped table-bordered">
       <tr>
        <th>Day</th>
-       <th>Action</th>
+       <th>Lam viec</th>
       </tr>
 
       <!-- loop over and print our customers -->
