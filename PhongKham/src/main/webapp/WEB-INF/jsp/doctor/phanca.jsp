@@ -5,7 +5,7 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
  <div class="container">
@@ -15,7 +15,7 @@
     <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
-     <div class="panel-title">Lich truc</div>
+     <div class="panel-title">Lịch trực tuần này của bạn</div>
     </div>
     <div class="panel-body">
      <table class="table table-striped table-bordered">
@@ -29,10 +29,10 @@
         <tr>
             <td> ${tempCustomer.thu}</td>
             <c:if test="${tempCustomer.id_doctor == currentUser.id}">
-            <td>Truc</td>
+            <td>Trực</td>
             </c:if>
             <c:if test="${tempCustomer.id_doctor != currentUser.id}">
-            <td>Nghi</td>
+            <td>Nghỉ</td>
             </c:if>
 
        </tr>
