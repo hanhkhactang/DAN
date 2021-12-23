@@ -16,4 +16,5 @@ public interface NurseService {
     public List < Patient > getPatient();
     public void savePatient(Patient patient);
     public Patient getPatient(int id);
+    public void deletepatient(int id);
 }

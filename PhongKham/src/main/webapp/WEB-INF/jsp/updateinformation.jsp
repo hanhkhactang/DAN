@@ -10,7 +10,12 @@
 
  <div class="container">
   <div class="col-md-offset-1 col-md-10">
-   <h2>${pageContext.request.userPrincipal.name}'s Information</h2>
+      <c:forEach var="tempCustomer" items="${customers}">
+        <c:if test="${pageContext.request.userPrincipal.name == tempCustomer.username}">
+   <h2>${tempCustomer.firstName}'s Information</h2>
+   </c:if>
+
+    </c:forEach>
    <hr />
 
    
@@ -49,7 +54,7 @@
 
             <td>
          <!-- display the update link --> <a href="editForm">Update</a>
-         | <a href="changepassword">Change Password</a>
+         | <a href="editavatar">Change Avatar</a>
             </td>
 
        </tr>

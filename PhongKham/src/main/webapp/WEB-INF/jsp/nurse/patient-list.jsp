@@ -25,6 +25,7 @@
        <th>Name</th>
        <th>Email</th>
        <th>Mess</th>
+       <th>Time</th>
        <th>Action</th>
       </tr>
 
@@ -46,6 +47,7 @@
         <td>${tempPatient.name}</td>
         <td>${tempPatient.email}</td>
         <td>${tempPatient.mess}</td>
+        <td>${tempPatient.lichkham}</td>
         
         
 

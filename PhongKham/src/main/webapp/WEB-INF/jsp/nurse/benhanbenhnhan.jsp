@@ -5,7 +5,7 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
  <div class="container">
@@ -99,11 +99,12 @@
 
        </c:if>
       </c:forEach>
+       
 
      </table>
-
+<h4>Cần thanh toán 200.000 VND</h4>
     </div>
-       <a href="xacnhan">Xan nhan</a>
+       <a class="btn btn-danger btn-sm"href="xacnhan">Xan nhan</a>
    </div>
   </div>
 

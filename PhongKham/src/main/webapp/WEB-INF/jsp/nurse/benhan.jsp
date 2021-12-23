@@ -32,6 +32,8 @@
       <!-- loop over and print our customers -->
       <c:forEach var="benhan" items="${benhan}">
           
+          <c:if test="${benhan.xacnhanyta == false}">
+          
        <!-- construct an "update" link with customer id -->
        <c:url var="confirmLink" value="benhanbenhnhan">
             <c:param name="benhanid" value="${benhan.id}" />
@@ -70,7 +72,8 @@
       
        </tr>
 
-      
+      </c:if>
+           
       </c:forEach>
 
      </table>

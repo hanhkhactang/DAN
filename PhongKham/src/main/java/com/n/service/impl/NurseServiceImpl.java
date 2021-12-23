@@ -38,5 +38,10 @@ public class NurseServiceImpl implements NurseService{
     public Patient getPatient(int id) {
         return nurseRepository.getPatient(id);
     }
+    @Override
+    public void deletepatient(int id) {
+        nurseRepository.deletepatient(id);
+    }
+    
     
 }

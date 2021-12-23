@@ -68,6 +68,12 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public void updateCustomer(UserAccount customer) {
+
+            doctorRepository.updateCustomer(customer);
+       
+    }
+    @Override
+    public void updateCustomeravatar(UserAccount customer) {
         try{
    
             Map r = this.cloudinary.uploader().upload(customer.getFile().getBytes(),

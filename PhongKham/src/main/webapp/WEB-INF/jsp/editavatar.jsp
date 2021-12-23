@@ -25,37 +25,20 @@
             <div class="register">
                 <h2>Edit Information Here</h2>
                 
-                <form:form enctype="multipart/form-data" id="register" method="post" action="updateUser" modelAttribute="customer"> 
+                <form:form enctype="multipart/form-data" id="register" method="post" action="updateavatar" modelAttribute="customer"> 
                     <form:hidden path="id" />
-                    <label for="firsname">First Name : </label>
-                    <br>
-                    <form:input path="firstName" type="text" name="fname" id="name" placeholder="Enter First Name"  />
-                    <br><br>
-                    <label for="lastname">Last Name : </label>
-                    <br>
-                    <form:input path="lastName" type="text" name="lname" id="name" placeholder="Enter Last Name"  />
-                    <br><br>
-                    <label for="email">Email : </label>
-                    <br>
-                    <form:input path="email" type="email" name="email" id="name" placeholder="Enter Email"  />
-                    <br><br>
-                    <label for="phone">Phone : </label>
-                    <br>
-                    <form:input path="phone" type="text" name="phone" id="name" placeholder="Enter Phone"  />
-                    <br><br>
-                    <label for="diachi">Address : </label>
-                    <br>
-                    <form:input path="diaChi" type="text" name="adress" id="name" placeholder="Enter Address" />
-                    <br><br>
-                    <label for="cmnd">Identity card number : </label>
-                    <br>
-                    <form:input path="cmnd" type="text" name="cmnd" id="name" placeholder="Enter Identity card number"  />
-                    <br><br>
+                    <form:hidden path="firstName" />
+                    <form:hidden path="lastName" />
+                    <form:hidden path="email" />
+                    <form:hidden path="phone" />
+                    <form:hidden path="diaChi" />
+                    <form:hidden path="cmnd" />
                     <form:hidden path="username" />
                     <form:hidden path="password"/>
                     <form:hidden path="userRole"/>
-                    <form:hidden path="avatar"/>
-                    
+                    <label for="avatar">Avatar : </label>
+                    <br>
+                    <form:input path="file" type="file" name="avatar"  />
                     <input type="submit" value="Save information" name="submit" id="submit" />
                 </form:form>
                 

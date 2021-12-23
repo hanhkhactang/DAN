@@ -18,6 +18,8 @@
    <div class="panel panel-info">
        <c:forEach var="benhan" items="${benhan}">
           <c:if test="${u.id == benhan.id_patient}">
+              <c:forEach var="user" items="${user}">
+               <c:if test="${user.id == benhan.id_doctor && benhan.xacnhanyta == true}">
     <div class="panel-heading">
      <div class="panel-title">Patient List</div>
     </div>
@@ -35,11 +37,9 @@
 
        
        <tr>
-           <c:forEach var="user" items="${user}">
-               <c:if test="${user.id == benhan.id_doctor && benhan.xacnhanyta == true}">
+           
             <td>${user.firstName}</td>
-                </c:if>
-            </c:forEach>
+               
             
             <td>${u.firstName}</td>
 
@@ -96,6 +96,8 @@
         <br>
         <br>
         <br><h6>-------------------------------------------------</h6>
+         </c:if>
+            </c:forEach>
        </c:if>
       </c:forEach>
    </div>

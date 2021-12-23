@@ -67,7 +67,7 @@ public class NurseController {
         patient.setActive(true);
         nurseService.savePatient(patient);
         String a = patient.getEmail();
-        senEmail("benhviennguyenlap@gmail.com", a, "Xác nhận kịch khám", "Lịch khám của bạn đã được xác nhận");
+        senEmail("benhviennguyenlap@gmail.com", a, "Appointment Confirmation", "Your appointment has been confirmed");
         return "redirect:/nurse/list-patient";
     }
     public void senEmail(String from, String to,String subject,String content)
@@ -101,8 +101,8 @@ public class NurseController {
     }
     @GetMapping("/delete")
     public String deleteCustomer(@RequestParam("patientId") int id) {
-        doctorService.deleteCustomer(id);
-        return "redirect:/admin/list";
+        nurseService.deletepatient(id);
+        return "redirect:/nurse/list-patient";
     }
     @GetMapping("/benhan")
     public String benhan(
@@ -111,6 +111,8 @@ public class NurseController {
         model.addAttribute("benhan", benhan);
         List < UserAccount > user = adminService.getCustomers();
         model.addAttribute("user", user);
+        List < prescriptiondetail > prescriptiondetail= doctorService.getprescriptiondetail();
+        model.addAttribute("detail", prescriptiondetail);
         return "benhannurse";
         
     }

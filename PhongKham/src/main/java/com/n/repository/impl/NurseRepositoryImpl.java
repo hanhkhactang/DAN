@@ -52,4 +52,10 @@ public class NurseRepositoryImpl implements NurseRepository{
         return patient;
     }
     
+    @Override
+    public void deletepatient(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Patient book = session.byId(Patient.class).load(id);
+        session.delete(book);
+    }
 }

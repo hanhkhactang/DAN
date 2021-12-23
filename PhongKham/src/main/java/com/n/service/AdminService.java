@@ -22,6 +22,8 @@ public interface AdminService {
     
     public void updateCustomer(UserAccount customer);
     
+    public void updateCustomeravatar(UserAccount customer);
+    
     public void updatePhanca(phanca customer);
 
     public UserAccount getCustomer(int id);

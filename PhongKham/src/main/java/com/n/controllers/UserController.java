@@ -115,10 +115,23 @@ public class UserController {
         theModel.addAttribute("customer", user);
         return "editForm";
     }
+    @GetMapping(path="/editavatar")
+    public String showFormForUpdateavatar(
+        Model theModel,HttpSession session) {
+        UserAccount u =  (UserAccount) session.getAttribute("currentUser");
+        UserAccount user = doctorService.getCustomer(u.getId());
+        theModel.addAttribute("customer", user);
+        return "editavatar";
+    }
     
     @PostMapping("/updateUser")
     public String updateUser(@ModelAttribute("customer") UserAccount user) {
         doctorService.updateCustomer(user);
+        return "redirect:/updateinformation";
+    }
+    @PostMapping("/updateavatar")
+    public String updateUseravatar(@ModelAttribute("customer") UserAccount user) {
+        doctorService.updateCustomeravatar(user);
         return "redirect:/updateinformation";
     }
     
