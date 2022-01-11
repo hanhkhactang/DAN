@@ -5,7 +5,7 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
  <div class="container">
@@ -70,7 +70,7 @@
             <td><a href="${updateLink}">Them</a></td>
          </c:if>
            <c:if test="${benhan.active == true}">
-            <td><a href="${confirmLink}">Xem chi ti?t</a></td>
+            <td><a href="${confirmLink}">Xem chi tiết</a></td>
          </c:if>
        </tr>
 

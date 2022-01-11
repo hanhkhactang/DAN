@@ -5,7 +5,7 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
  <div class="container">
@@ -16,7 +16,7 @@
     <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
-     <div class="panel-title">Danh s·ch ph‚n ca</div>
+     <div class="panel-title">Danh s√°ch ph√¢n ca</div>
     </div>
     <div class="panel-body">
      <table class="table table-striped table-bordered">
@@ -24,7 +24,7 @@
        <th>Thu</th>
        <th>Doctor</th>
        <th>Nurse</th>
-       <th>Ph‚n ca</th>
+       <th>Ph√¢n ca</th>
       </tr>
 
       <!-- loop over and print our customers -->
