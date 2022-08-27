@@ -1,7 +1,7 @@
 # SpringMVCSaleWebV1
 <h2>Công nghệ sử dụng</h2>
 <ul>
-  <li>Hệ thống Website bán hàng demo phát triển bằng SpringMVC</li>
+  <li>Hệ thống Website khám bệnh demo phát triển bằng SpringMVC</li>
   <li>Công nghệ: Java SpringMVC + Hibernate (MySQL) </li>
 </ul>
 
